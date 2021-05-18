@@ -1,0 +1,329 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "佛顶山生态旅游"
+			}
+		},
+		{
+			"path": "pages/daolan/index",
+			"style": {
+				"navigationBarTitleText": "导览"
+			}
+		},
+		{
+			"path": "pages/dongtai/index",
+			// 动态
+			"style": {
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+							"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+				// "navigationBarTitleText": "动态"
+			}
+		},
+		{
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/personal/index",
+			"style": {
+				"navigationBarTitleText": "个人信息"
+			}
+		},
+	    {
+	    	"path": "pages/collection/index",
+	    	"style": {
+	    		"navigationBarTitleText": "收藏"
+	    	}
+	    },
+		{
+			"path": "pages/invoice/index",
+			"style": {
+				"navigationBarTitleText": "发票管理"
+			}
+		},
+		{
+			"path": "pages/fapiaojilu/index",
+			"style": {
+				"navigationBarTitleText": "发票记录"
+			}
+		},
+		{
+			"path": "pages/taitou/index",
+			"style": {
+				"navigationBarTitleText": "发票抬头"
+			}
+		},
+		{
+			"path": "pages/fapiao_add/index",
+			"style": {
+				"navigationBarTitleText": "添加发票抬头"
+			}
+		},
+		{
+			"path": "pages/zhanghaoguanli/index",
+			"style": {
+				"navigationBarTitleText": "账号管理"
+			}
+		},
+		{
+			"path": "pages/zhanghaoguanli/privacy",
+			"style": {
+				"navigationBarTitleText": "隐私政策"
+			}
+		},
+		{
+			"path": "pages/zhanghaoguanli/about",
+			"style": {
+				"navigationBarTitleText": "关于我们"
+			}
+		},
+		{
+			"path": "pages/zhanghaoguanli/agreement",
+			"style": {
+				"navigationBarTitleText": "用户协议"
+			}
+		},
+		{
+			"path": "pages/zhanghaoguanli/agreement",
+			"style": {
+				"navigationBarTitleText": "用户协议"
+			}
+		},
+		{
+			"path": "pages/shimingrenzheng/index",
+			"style": {
+				"navigationBarTitleText": "实名认证",
+				"navigationBarBackgroundColor":"#15A03F",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path": "pages/footprint/index",
+			"style": {
+				"navigationBarTitleText": "我的足迹",
+				"navigationStyle":"custom"
+			}
+		},
+		{
+			"path": "pages/jifen/index",
+			"style": {
+				"navigationBarTitleText": "积分管理"
+			}
+		},
+		{
+			"path": "pages/jifen/mingxi",
+			"style": {
+				"navigationBarTitleText": "积分明细"
+			}
+		},
+		{
+			"path": "pages/jifen/duihuan",
+			"style": {
+				"navigationBarTitleText": "积分兑换"
+			}
+		},
+		{
+			"path": "pages/youhuanquan/index",
+			"style": {
+				"navigationBarTitleText": "优惠券"
+			}
+		}
+        ,{
+			// 发布
+            "path" : "pages/release/release",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+				"navigationStyle": "custom" ,// 隐藏系统导航栏
+							"navigationBarTextStyle": "white",// 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 美食必享
+            "path" : "pages/food/food",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "美食必享",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/food/foodinfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 公告
+            "path" : "pages/notice/notice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "公告",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 公告详情
+            "path" : "pages/notice/noticeinfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 景点详情
+            "path" : "pages/scenic/scenic",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
+        ,{
+			// 音乐列表
+            "path" : "pages/scenic/musiclist",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "音乐列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 商品详情
+            "path" : "pages/goodsinfo/goodsinfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 民宿
+            "path" : "pages/homestay/homestay",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "民宿客栈",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			//景区介绍
+            "path" : "pages/introduce/introduce",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "景区介绍",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 提交订单
+            "path" : "pages/goodsinfo/submitorder",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "提交订单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 出票
+            "path" : "pages/goodsinfo/gettiket",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "出票",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 景区介绍
+            "path" : "pages/introduce/scenicarea",
+            "style" :                                                                                    
+            {
+				"navigationStyle":"custom",
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 景点列表
+            "path" : "pages/introduce/sceniclist",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "景点介绍",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 游客须知
+            "path" : "pages/introduce/touristnotice",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "游客须知",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"tabBar":{
+		"color":"#000000",
+		"selectedColor":"#32B134",
+		
+		"list":[
+			{
+				"text":"首页",
+				"pagePath":"pages/index/index",
+				"iconPath":"static/icon/shouye_.png",
+				"selectedIconPath":"static/icon/shouye.png"
+			},{
+				"text":"导览",
+				"pagePath":"pages/daolan/index",
+				"iconPath":"static/icon/daolan_.png",
+				"selectedIconPath":"static/icon/daolan.png"
+			},{
+				"text":"动态",
+				"pagePath":"pages/dongtai/index",
+				"iconPath":"static/icon/dongtai_.png",
+				"selectedIconPath":"static/icon/dongtai.png"
+			},{
+				"text":"我的",
+				"pagePath":"pages/my/index",
+				"iconPath":"static/icon/daohang.png",
+				"selectedIconPath":"static/icon/daohang_.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "佛顶山生态旅游",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"easycom": {
+		"autoscan": true,
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+		}
+	
+}
