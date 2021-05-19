@@ -286,6 +286,45 @@
             }
             
         }
+        ,{
+			// 旅游路线
+            "path" : "pages/introduce/travelpath",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "旅游路线",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 旅游攻略
+            "path" : "pages/introduce/strategy",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "旅游攻略",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 民宿详情
+            "path" : "pages/homestay/homeinfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "民宿详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/homestay/houseorder",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"tabBar":{
 		"color":"#000000",
@@ -306,12 +345,12 @@
 				"text":"动态",
 				"pagePath":"pages/dongtai/index",
 				"iconPath":"static/icon/dongtai_.png",
-				"selectedIconPath":"static/icon/dongtai.png"
+				"selectedIconPath":"static/icon/dongtaisel.png"
 			},{
 				"text":"我的",
 				"pagePath":"pages/my/index",
-				"iconPath":"static/icon/daohang.png",
-				"selectedIconPath":"static/icon/daohang_.png"
+				"iconPath":"static/icon/daohang2.png",
+				"selectedIconPath":"static/icon/daohang.png"
 			}
 		]
 	},

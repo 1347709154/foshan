@@ -24,7 +24,7 @@
 					{
 						title: '旅游攻略',
 						imgurl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.article.pchome.net%2F00%2F33%2F22%2F95%2Fpic_lib%2Fs960x639%2F1920CHINA_2020s960x639.jpg&refer=http%3A%2F%2Fimg.article.pchome.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623916725&t=c65b0f9354327691518c42d1475ac84b',
-						links: ''
+						links: './strategy'
 					},
 					{
 						title: '景点介绍',
@@ -34,7 +34,7 @@
 					{
 						title: '导赏手册',
 						imgurl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F10745474838%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1623916725&t=043b466564f9a4a1e9100624479ed2c3',
-						links: ''
+						links: './travelpath'
 					},
 					{
 						title: '游客须知',
