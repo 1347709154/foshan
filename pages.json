@@ -14,11 +14,9 @@
 		},
 		{
 			"path": "pages/dongtai/index",
-			// 动态
+			
 			"style": {
-				"navigationStyle": "custom" ,// 隐藏系统导航栏
-							"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
-				// "navigationBarTitleText": "动态"
+				"navigationBarTitleText": "动态"
 			}
 		},
 		{
@@ -132,199 +130,156 @@
 			"style": {
 				"navigationBarTitleText": "优惠券"
 			}
-		}
-        ,{
-			// 发布
-            "path" : "pages/release/release",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-				"navigationStyle": "custom" ,// 隐藏系统导航栏
-							"navigationBarTextStyle": "white",// 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 美食必享
-            "path" : "pages/food/food",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "美食必享",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/food/foodinfo",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 公告
-            "path" : "pages/notice/notice",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "公告",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 公告详情
-            "path" : "pages/notice/noticeinfo",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 景点详情
-            "path" : "pages/scenic/scenic",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false,
+		},
+		{
+			"path": "pages/address/index",
+			"style": {
+				"navigationBarTitleText": "地址管理"
+			}
+		},
+		{
+			"path": "pages/address/add",
+			"style": {
+				"navigationBarTitleText": "添加地址",
+				"navigationBarBackgroundColor":"#F5F5F5"
+			}
+		},
+		{
+			"path": "pages/distribution/index",
+			"style": {
+				"navigationBarTitleText": "分销中心",
 				"navigationStyle":"custom"
-            }
-            
-        }
-        ,{
-			// 音乐列表
-            "path" : "pages/scenic/musiclist",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "音乐列表",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 商品详情
-            "path" : "pages/goodsinfo/goodsinfo",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "商品详情",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 民宿
-            "path" : "pages/homestay/homestay",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "民宿客栈",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			//景区介绍
-            "path" : "pages/introduce/introduce",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "景区介绍",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 提交订单
-            "path" : "pages/goodsinfo/submitorder",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "提交订单",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 出票
-            "path" : "pages/goodsinfo/gettiket",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "出票",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 景区介绍
-            "path" : "pages/introduce/scenicarea",
-            "style" :                                                                                    
-            {
-				"navigationStyle":"custom",
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 景点列表
-            "path" : "pages/introduce/sceniclist",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "景点介绍",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 游客须知
-            "path" : "pages/introduce/touristnotice",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "游客须知",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 旅游路线
-            "path" : "pages/introduce/travelpath",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "旅游路线",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 旅游攻略
-            "path" : "pages/introduce/strategy",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "旅游攻略",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-			// 民宿详情
-            "path" : "pages/homestay/homeinfo",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "民宿详情",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/homestay/houseorder",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
+			}
+		},
+		{
+			"path": "pages/distribution/list",
+			"style": {
+				"navigationBarTitleText": "提现明细"
+				
+			}
+		},
+		{
+			"path": "pages/distribution/team",
+			"style": {
+				"navigationBarTitleText": "我的团队"
+				
+			}
+		},
+		{
+			"path": "pages/distribution/order",
+			"style": {
+				"navigationBarTitleText": "分销订单"
+				
+			}
+		},
+		{
+			"path": "pages/distribution/qrcode",
+			"style": {
+				"navigationBarTitleText": "推广二维码"
+			}
+		},
+		{
+			"path": "pages/order/scenic/index",
+			"style": {
+				"navigationBarTitleText": "景区列表"
+			}
+		},
+		{
+			"path": "pages/order/hotel/index",
+			"style": {
+				"navigationBarTitleText": "民宿列表"
+			}
+		},
+		{
+			"path": "pages/order/food/index",
+			"style": {
+				"navigationBarTitleText": "特产订单"
+			}
+		},
+		{
+			"path": "pages/order/spell/index",
+			"style": {
+				"navigationBarTitleText": "拼团订单"
+			}
+		},
+		{
+			"path": "pages/order/seckill/index",
+			"style": {
+				"navigationBarTitleText": "秒杀订单"
+			}
+		},
+		{
+			"path": "pages/order/Pre/index",
+			"style": {
+				"navigationBarTitleText": "预约订单"
+			}
+		},
+		{
+			"path": "pages/order/after-sales/index",
+			"style": {
+				"navigationBarTitleText": "售后/退款"
+			}
+		},
+		{
+			"path": "pages/order/change/index",
+			"style": {
+				"navigationBarTitleText": "改签"
+			}
+		},
+		{
+			"path": "pages/formulate/index",
+			"style": {
+				"navigationBarTitleText": "定制游"
+			}
+		},
+		{
+			"path": "pages/volunteer/index",
+			"style": {
+				"navigationBarTitleText": "志愿者"
+			}
+		},
+		{
+			"path": "pages/volunteer/details",
+			"style": {
+				"navigationBarTitleText": "志愿者详情"
+			}
+		},
+		{
+			"path": "pages/guide-pre/index",
+			"style": {
+				"navigationBarTitleText": "导游预约"
+			}
+		},
+		{
+			"path": "pages/guide-pre/details",
+			"style": {
+				"navigationBarTitleText": "导游详情"
+			}
+		},
+		{
+			"path": "pages/guide-pre/pre",
+			"style": {
+				"navigationBarTitleText": "预约"
+			}
+		},
+		{
+			"path": "pages/product/index",
+			"style": {
+				"navigationBarTitleText": "当地特产"
+			}
+		},
+		{
+			"path": "pages/product/details",
+			"style": {
+				"navigationBarTitleText": "商品详情"
+			}
+		},
+		{
+			"path": "pages/product/order",
+			"style": {
+				"navigationBarTitleText": "确认订单"
+			}
+		}
     ],
 	"tabBar":{
 		"color":"#000000",
@@ -345,12 +300,12 @@
 				"text":"动态",
 				"pagePath":"pages/dongtai/index",
 				"iconPath":"static/icon/dongtai_.png",
-				"selectedIconPath":"static/icon/dongtaisel.png"
+				"selectedIconPath":"static/icon/dongtai.png"
 			},{
 				"text":"我的",
 				"pagePath":"pages/my/index",
-				"iconPath":"static/icon/daohang2.png",
-				"selectedIconPath":"static/icon/daohang.png"
+				"iconPath":"static/icon/daohang_.png",
+				"selectedIconPath":"static/icon/daohang.png "
 			}
 		]
 	},

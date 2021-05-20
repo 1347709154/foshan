@@ -1,29 +1,30 @@
 <template>
-
-	<view class="header">
+	<view class="content">
 		<!-- 个人信息 -->
-		<view class="header_block">
-			<image src="../../static/banner.png" mode="scaleToFill" class="header_block_img"></image>
-			<view class="header_block_title">
-				<view class="header_block_title_te">我的</view>
-				<image src="../../static/user/set.png" mode="scaleToFill" class="set"></image>
+		<view class="top-bg">
+			<view class="top-nav">我的</view>
+			<view class="top-inc" @click="fanhui">
+				<image src="../../static/user/set.png" mode="aspectFit"></image>
 			</view>
-			<view class="user-o">
-				<view class="user-img">
-					<image src="../../static/user/user_img.png" mode="scaleToFill"></image>
+			<view class="user-box">
+				<view class="user-l">
+					<view class="user-l-img">
+						<image src="../../static/user/user_img.png"></image>
+					</view>
+					<view class="user-l-name">
+						<view style="font-size: 36rpx;font-weight: bold;">彩云之南</view>
+						<view style="font-size: 36rpx;">88888888</view>
+					</view>
 				</view>
-				<view class="user-message">
-					<view class="user-name">彩云之南</view>
-					<view class="user_tel">88888888888</view>
+				<view class="user-r" @tap="bianji">
+					<view>编辑资料</view>
 				</view>
-				<button class="button-yuanjiao" hover-class="bg-click" @tap="bianji">编辑资料</button>
-				<!-- <view class="user-btn">编辑资料</view> -->
 			</view>
 			<!-- 积分管理 -->
 			<view class="integral">
 				<view class="integral-fen">
 					<text style="margin-right: 15rpx;font-size: 32rpx;">我的积分</text>
-					1000
+					<text>1000</text>
 				</view>
 				<view class="integral_bt" @click="jifen">
 					<view>积分管理</view>
@@ -56,28 +57,31 @@
 		<view class="order-card">
 			<view class="order-top">
 				<view class="" style="font-size: 38rpx;font-weight: bold;">我的订单</view>
-				<view class="">全部订单</view>
 			</view>
 			<view class="order-bottom">
-				<view class="order-bottom-ul">
-					<image src="../../static/user/payment.png" style="width: 75rpx;height: 55rpx;" mode="scaleToFill"></image>
-					<view style="margin-top: 15rpx;font-size: 32rpx;">待付款</view>
+				<view class="order-bottom-ul"  @click="scenic">
+					<image src="../../static/user/scenic.png" mode="aspectFit"></image>
+					<view>景区</view>
 				</view>
-				<view class="order-bottom-ul">
-					<image src="../../static/user/deliver.png" style="width: 75rpx;height: 55rpx;" mode="scaleToFill"></image>
-					<view style="margin-top: 15rpx;font-size: 32rpx;">待发货</view>
+				<view class="order-bottom-ul" @click="hotel">
+					<image src="../../static/user/hotel.png" mode="aspectFit"></image>
+					<view>民宿</view>
 				</view>
-				<view class="order-bottom-ul">
-					<image src="../../static/user/collect.png" style="width: 75rpx;height: 55rpx;" mode="scaleToFill"></image>
-					<view style="margin-top: 15rpx;font-size: 32rpx;">待收货</view>
+				<view class="order-bottom-ul" @click="food">
+					<image src="../../static/user/food.png" mode="aspectFit"></image>
+					<view>特产</view>
 				</view>
-				<view class="order-bottom-ul">
-					<image src="../../static/user/review.png" style="width: 75rpx;height: 55rpx;" mode="scaleToFill"></image>
-					<view style="margin-top: 15rpx;font-size: 32rpx;">待评论</view>
+				<view class="order-bottom-ul" @click="spell">
+					<image src="../../static/user/spell.png" mode="aspectFit"></image>
+					<view>拼团</view>
 				</view>
-				<view class="order-bottom-ul">
-					<image src="../../static/user/shouhou.png" style="width: 75rpx;height: 55rpx;" mode="scaleToFill"></image>
-					<view style="margin-top: 15rpx;font-size: 32rpx;">售后/退</view>
+				<view class="order-bottom-ul" @click="seckill">
+					<image src="../../static/user/seckill.png" mode="aspectFit"></image>
+					<view>秒杀</view>
+				</view>
+				<view class="order-bottom-ul" @click="aftersales">
+					<image src="../../static/user/shouhou.png" mode="aspectFit"></image>
+					<view>售后/退款</view>
 				</view>
 			</view>
 		</view>
@@ -91,7 +95,7 @@
 				<image src="../../static/user/shiming.png" style="width: 50rpx;height: 50rpx;" mode="scaleToFill"></image>
 				<view style="margin-top: 20rpx;font-size: 30rpx;">实名认证</view>
 			</view>
-			<view class="bottom-card-ul">
+			<view class="bottom-card-ul" @click="address">
 				<image src="../../static/user/dizhi.png" style="width: 50rpx;height: 50rpx;" mode="scaleToFill"></image>
 				<view style="margin-top: 20rpx;font-size: 30rpx;">地址管理</view>
 			</view>
@@ -103,7 +107,7 @@
 				<image src="../../static/user/zhibo.png" style="width: 50rpx;height: 50rpx;" mode="scaleToFill"></image>
 				<view style="margin-top: 20rpx;font-size: 30rpx;">直播好货</view>
 			</view>
-			<view class="bottom-card-ul">
+			<view class="bottom-card-ul" @click="distribution">
 				<image src="../../static/user/fenxiao.png" style="width: 50rpx;height: 50rpx;" mode="scaleToFill"></image>
 				<view style="margin-top: 20rpx;font-size: 30rpx;">分销商</view>
 			</view>
@@ -115,6 +119,13 @@
 				<image src="../../static/user/zhanghao.png" style="width: 50rpx;height: 50rpx;" mode="scaleToFill"></image>
 				<view style="margin-top: 20rpx;font-size: 30rpx;">账号管理</view>
 			</view>
+		</view>
+		<!-- 站位 -->
+		<view class="null"></view>
+		<!-- 拨打电话 -->
+		<view class="phone">
+			<image src="../../static/user/phone.png" mode="aspectFit"></image>
+			<view>客服热线</view>
 		</view>
 	</view>
 
@@ -156,6 +167,42 @@
 					url:"/pages/footprint/index"
 				})
 			},
+			//景区订单
+			scenic:function(e){
+				uni.navigateTo({
+					url:"/pages/order/scenic/index"
+				})
+			},
+			//民宿订单
+			hotel:function(e){
+				uni.navigateTo({
+					url:"/pages/order/hotel/index"
+				})
+			},
+			//特产订单
+			food:function(e){
+				uni.navigateTo({
+					url:"/pages/order/food/index"
+				})
+			},
+			// 拼团订单
+			spell:function(e){
+				uni.navigateTo({
+					url:"/pages/order/spell/index"
+				})
+			},
+			//描述订单
+			seckill:function(e){
+				uni.navigateTo({
+					url:"/pages/order/seckill/index"
+				})
+			},
+			// 售后/退款
+			aftersales:function(e){
+				uni.navigateTo({
+					url:"/pages/order/after-sales/index"
+				})
+			},
 			//优惠券
 			youhuiquan:function(e){
 				uni.navigateTo({
@@ -168,10 +215,22 @@
 					url:"/pages/shimingrenzheng/index"
 				})
 			},
+			//地址管理
+			address:function(e){
+				uni.navigateTo({
+					url:"/pages/address/index"
+				})
+			},
 			//发票管理
 			invoice:function(e){
 				uni.navigateTo({
 					url:"../invoice/index"
+				})
+			},
+			//分销中心
+			distribution:function(e){
+				uni.navigateTo({
+					url:"/pages/distribution/index"
 				})
 			},
 			//账号管理
@@ -186,100 +245,84 @@
 
 <style>
 	page {
-		width: 100%;
-		height: 100%;
 		background-color: #F2F6F7;
 	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 120rpx;
+	}
+	/* 个人信息 */
 
-	.header {
+	.top-bg{
+		background: url(../../static/banner.png);
+		background-size: 100% 100%;
+		height: 430rpx;
 		width: 100%;
 	}
-
-	.header_block>.header_block_img {
+	.top-inc{
 		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 450rpx;
-		z-index: 1;
+		top: 25rpx;
+		right: 32rpx;
+		width: 50rpx;
+		height: 50rpx;
 	}
-
-	.header_block_title {
-		position: absolute;
-		z-index: 1;
+	.top-inc>image{
+		width: 100%
+		;
+		height: 100%;
+	}
+	.top-nav{
 		height: 100rpx;
-		width: 100%;
-		padding-left: 32rpx;
-		padding-right: 32rpx;
 		line-height: 100rpx;
 		text-align: center;
-		/* background: #007AFF; */
+		color: #ffffff;
+		font-size: 36rpx;
+		font-weight: bold;
+	}
+	.user-box{
+		width: 96%;
+		margin-left: 2%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items:flex-start;
 
 	}
-
-	.header_block_title_te {
-		color: #FFFFFF;
-		font-size: 42rpx;
-		font-family: 'SimHei';
+	.user-l{
+		display: flex;
+		flex-direction: row;
 	}
-
-	.set {
-		width: 45rpx;
-		height: 45rpx;
-		position: absolute;
-		z-index: 1;
-		right: 32rpx;
-		top: 30rpx;
-	}
-
-	.user-o {
-		position: absolute;
-		z-index: 1;
-		padding-left: 32rpx;
-		padding-right: 32rpx;
-		/* background: #3F536E; */
-		width: 100%;
-		height: 200rpx;
-		top: 100rpx;
-	}
-
-	.user-img {
-		float: left;
+	.user-l-img{
 		width: 150rpx;
 		height: 150rpx;
 		background: #FFFFFF;
 		border-radius: 50%;
-		margin-top: 10rpx;
 	}
-
-	.user-img>image {
-		float: left;
-		width: 150rpx;
-		height: 150rpx;
+	.user-l-img>image{
+		width: 100%;
+		height: 100%;
 		border-radius: 50%;
 	}
-
-	.user-message {
-		display: inline-block;
-		height: 200rpx;
+	.user-l-name{
+		display: flex;
+		flex-direction: column;
+		margin-left: 15rpx;
 	}
-
-	.user-name {
-		margin-left: 20rpx;
-		margin-top: 5rpx;
-		height: 100rpx;
-		line-height: 100rpx;
-		font-size: 40rpx;
+	.user-l-name>view{
+		margin-top: 25rpx;
 		color: #ffffff;
 	}
-
-	.user_tel {
-		margin-left: 20rpx;
-		font-size: 36rpx;
-		color: #ffffff;
+	.user-r{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
-	.button-yuanjiao {
-		float: right;
+	.user-r>view{
+		text-align: center;
 		height: 60rpx;
 		line-height: 60rpx;
 		width: 180rpx;
@@ -291,50 +334,39 @@
 	}
 	/* 积分管理 */
 	.integral {
-		position: absolute;
-		top: 270rpx;
-		width: 100%;
-		height: 100rpx;
-		z-index: 1;
 		display: flex;
 		flex-direction: row;
 		padding-left: 48rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items:flex-start;
 	}
-
+	
 	.integral-fen {
-		/* float: left; */
-		width: 65%;
 		overflow: hidden;
 		line-height: 100rpx;
 		color: #FFFFFF;
 		font-size: 40rpx;
-
+	
 	}
-
+	
 	.integral_bt {
-		/* float: right; */
-		width: 35%;
 		display: flex;
 		flex-direction: row;
 		line-height: 100rpx;
 		text-align: right;
-		/* align-self: auto;
-		align-content:space-around */
-
+		padding-right: 32rpx;
 	}
-
+	
 	.integral_bt>view {
 		color: #FFFFFF;
 		padding-left: 30rpx;
 	}
-
 	/* 收藏、我的、优惠券 */
 	.card {
-		position: absolute;
-		width: 94%;
-		margin-left: 3%;
-		top: 390rpx;
-		z-index: 1;
+		margin-top: -80rpx;
+		width: 96%;
 		height: 180rpx;
 		background: #FFFFFF;
 		border-radius: 30rpx;
@@ -342,9 +374,9 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-
+	
 	}
-
+	
 	.card-ul {
 		height: 100%;
 		width: 100%;
@@ -355,18 +387,12 @@
 	}
 	/* 订单 */
 	.order-card{
-		position: absolute;
-		width: 94%;
-		margin-left: 3%;
-		top: 600rpx;
-		z-index: 1;
-		height: 250rpx;
+		width: 96%;
 		background: #FFFFFF;
 		border-radius: 30rpx;
 		display: flex;
 		flex-direction: column;
-		/* align-items: center;
-		justify-content: center; */
+		margin-top: 30rpx;
 	}
 	.order-top{
 		height: 80rpx;
@@ -377,30 +403,30 @@
 		justify-content: space-between;
 		padding: 0rpx 40rpx;
 	}
-	.order-bottom{
-		height: 150rpx;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-	}
 	.order-bottom-ul{
-		width: 20%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		float: left;
+		width: 25%;
+		text-align: center;
+		margin-bottom:25rpx;
+	}
+		
+	.order-bottom-ul>image{
+		width: 55rpx;
+		height: 55rpx;
+	}
+	.order-bottom-ul>view{
+		margin-top: 10rpx;
+		color: #404040;
+		font-size: 30rpx;
 	}
 	/* 底部功能 */
 	.bottom-card{
-		position: absolute;
-		top:880rpx;
-		z-index: 1;
-		height: 300rpx;
+		
 		width: 100%;
 		background: #ffffff;
 		/* display: flex;
 		flex-direction: row; */
+		margin-top: 30rpx;
 		}
 	.bottom-card-ul{
 		float: left;
@@ -410,5 +436,33 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+	}
+	.null{
+		height: 120rpx;
+		width: 100%;
+	}
+	.phone{
+		position: absolute;
+		z-index: 99999;
+		top: 780rpx;
+		right: 32rpx;
+		width: 140rpx;
+		height: 170rpx;
+		border: 1rpx solid #80D981;
+		border-radius: 60rpx;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		opacity: 0.5;
+	}
+	.phone>image{
+		width: 120rpx;
+		height: 90rpx;
+	}
+	.phone>view{
+		color:#80D981 ;
+		font-size: 28rpx;
+		margin-top: 10rpx;
 	}
 </style>

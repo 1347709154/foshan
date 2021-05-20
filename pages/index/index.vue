@@ -14,7 +14,7 @@
 		<view class="home_center">
 			<view class="centerlist">
 				<view class="center_item" v-for="(item,index) in list">
-					<view class="item_list">
+					<view class="item_list" @tap="path(item.path)">
 						<image class="itemicon"  
 						:src="item.img"
 						 mode="widthFix"></image>
@@ -32,7 +32,7 @@
 					</view>
 					<image class="icon" src="../../static/home/goupiao.png" mode="widthFix"></image>
 				</view>
-				<view class="yuyue">
+				<view class="yuyue" @click="formulate">
 					<view class="goupiao_con">
 						<view class="title">导游预约</view>
 						<view class="miaosu">轻松了解民俗文化</view>
@@ -42,117 +42,55 @@
 			</view>
 			<!-- 景区介绍 -->
 			<view class="qujs">
-				<view class="qujs_item"><text>景区介绍</text></view>
-				<view class="qujs_item"><text>开放时间：</text>周一~周日08:00~18:00</view>
 				<view class="qujs_item gengduo_more" >
 					<view>
-						<text>地址：</text> 贵州省铜仁市石阡县
+						<text>导览地址：</text> 贵州省铜仁市石阡县
 					</view>
-					<image class="gengduo" src="../../static/home/gengduo.png" mode="widthFix"></image>
-				</view>
-				<view class="jqxq">
-					<text>景区详情</text>
-					<view class="jqxq_border"></view>
+					<image class="gengduo" src="../../static/home/dingwei.png" mode="widthFix" style="width: 35rpx;"></image>
 				</view>
 			</view>
 		</view>
-		<!-- 精彩视频 -->
-		<view class="jingcai_video">
-			<view class="block">
-				<view class="title">
-					<view class="title_icon"></view>
-					<text>精彩视频</text>
-				</view>
-				<view class="more">
-					<text>更多</text>
-					<image class="moreicon gengduo" src="../../static/home/gengduo_.png" mode="widthFix"></image>
+		<!-- 精彩楼层 -->
+		<view class="video">
+			<view class="video-top">
+				<view class="video-tel">精彩视频</view>
+				<view class="inc">
+					<view>更多</view>
+					<u-icon  size="30" name="arrow-right"></u-icon>
 				</view>
 			</view>
-			<view class="video">
-				<scroll-view scroll-x="true">
-					<view class="item_video">
-						<image class="image" src="../../static/home/bg1.png" mode="scaleToFill"></image>
-						<view class="item_video_block">
-							<image class="baofang" src="../../static/home/baofang.png" mode=""></image>
-						</view>
+			<view class="swiper">
+				<scroll-view class="scroll-view" scroll-x="true" @scroll="scroll" scroll-left="120">
+					<view class="scroll-view-con" v-for="(item,index) in videolist">
+						<image :src="item" class="video-img"></image>
+						<image src="../../static/home/baofang.png" class="bf"></image>
 					</view>
-					<view class="item_video">
-							<image class="image"  src="../../static/home/bg2.png" mode="widthFix"></image>
-							<view class="item_video_block">
-								<image class="baofang" src="../../static/home/baofang.png" mode=""></image>
-							</view>
-					</view>
-					<view class="item_video">
-						<image class="image" src="../../static/home/bg3.png" mode="widthFix"></image>
-						<view class="item_video_block">
-							<image class="baofang" src="../../static/home/baofang.png" mode=""></image>
-						</view>
-					</view>
+					
 				</scroll-view>
 			</view>
-			
+		</view>
+		<!-- 楼层 -->
+		<view class="floor" v-for="(item,index) in  floorlist" >
+			<view class="floor-top" :style="{background: 'linear-gradient('+item.background_color[0]+','+item.background_color[1]+')'}">
+				<view class="floor-top-tel">
+					<view>{{item.title}}</view>
+					<view style="font-size: 28rpx; color:#666666">{{item.describe}}</view>
+				</view>
+				<view class="floor-top-img">
+					<image :src="item.background_img" mode="aspectFit"></image>
+				</view>
+			</view>
+			<view class="floor-zj">
+				<view class="floor-zj-tag"  v-for="(items,idx) in item.tags">{{items}}</view>
+			</view>
+			<view class="floor-bottom" >
+				<view class="floor-bottom-tag" v-for="(it,idex) in item.content">
+					<image :src="it.img" mode="scaleToFill"></image>
+					<view>{{it.describe}}</view>
+				</view>
+			</view>
 		</view>
 		
-		<!-- 必玩景区 -->
-		<view class="biwan jingcai_video">
-			<view class="block">
-				<view class="title">
-					<view class="title_icon"></view>
-					<text>必玩景区</text>
-				</view>
-				<view class="more">
-					<text>更多</text>
-					<image class="moreicon gengduo" src="../../static/home/gengduo_.png" mode="widthFix"></image>
-				</view>
-			</view>
-			<view class="biwan_img video">
-				<scroll-view scroll-x="true">
-					<view class="item_video">
-						<image class="image" src="../../static/home/bg1.png" mode="scaleToFill"></image>
-						 <view class="title">金顶云海</view>
-					</view>
-					<view class="item_video">
-						<image class="image"  src="../../static/home/bg2.png" mode="scaleToFill"></image>
-						 <view class="title">金顶云海</view>
-					</view>
-					<view class="item_video">
-						<image class="image" src="../../static/home/bg3.png" mode="scaleToFill"></image>
-						 <view class="title">金顶云海</view>
-					</view>
-				</scroll-view>
-			</view>
-			
-		</view>
-		<!-- 民俗风情 -->
-		<view class="biwan jingcai_video">
-			<view class="block">
-				<view class="title">
-					<view class="title_icon"></view>
-					<text>民俗风情</text>
-				</view>
-				<view class="more">
-					<text>更多</text>
-					<image class="moreicon gengduo" src="../../static/home/gengduo_.png" mode="widthFix"></image>
-				</view>
-			</view>
-			<view class="biwan_img video">
-				<scroll-view scroll-x="true">
-					<view class="item_video">
-						<image class="image" src="../../static/home/bg1.png" mode="scaleToFill"></image>
-						 <view class="title">金顶云海</view>
-					</view>
-					<view class="item_video">
-						<image class="image"  src="../../static/home/bg2.png" mode="scaleToFill"></image>
-						 <view class="title">金顶云海</view>
-					</view>
-					<view class="item_video">
-						<image class="image" src="../../static/home/bg3.png" mode="scaleToFill"></image>
-						 <view class="title">金顶云海</view>
-					</view>
-				</scroll-view>
-			</view>
-			
-		</view>
 		
 	</view>
 </template>
@@ -161,11 +99,17 @@
 	export default {
 		data() {
 			return {
+				scrollTop: 0,
+				old: {
+					scrollTop: 0
+				},
+				videolist:['../../static/home/bg2.png','../../static/home/bg3.png','../../static/home/bg1.png'],
 				list:[
 					{
 						img:'../../static/home/lvyougonglv.png',
 						title:'路由攻略'
 					},{
+						path: "/pages/product/index",
 						img:'../../static/home/techan.png',
 						title:'当地特产'
 					},{
@@ -183,7 +127,97 @@
 					},{
 						img:'../../static/home/gongg.png',
 						title:'公告'
+					},{
+						img:'../../static/home/zhiyuanzhe.png',
+						title:'志愿者',
+						path:'/pages/volunteer/index'
+					}
+				],
+				floorlist:[
+					{
+						title:"生态教育",
+						describe:"旅行教育，边玩边学",
+						background_img:"../../static/home/jiaoyu.png",
+						background_color:['#FCA67B','#FFFCFA'],
+						tags:['研学旅行','研学旅行','研学旅行','研学旅行','研学旅行','研学旅行'],
+						content:[
+							{
+								img:"../../static/home/bg1.png",
+								describe:'中小学生研学,中小学生研学...'
+							},
+							{
+								img:"../../static/home/bg1.png",
+								describe:'中小学生研学,中小学生研学...'
+							},
+							{
+								img:"../../static/home/bg1.png",
+								describe:'中小学生研学,中小学生研学...'
+							}
+						]
 					},
+					{
+						title:"森林康养",
+						describe:"旅行教育，边玩边学",
+						background_img:"../../static/home/jiankang.png",
+						background_color:['#F9EDAA','#FFFCFA'],
+						tags:['天然氧吧','天然氧吧','天然氧吧','天然氧吧','天然氧吧','天然氧吧'],
+						content:[
+							{
+								img:"../../static/home/bg3.png",
+								describe:'天然氧吧,天然氧吧...'
+							},
+							{
+								img:"../../static/home/bg3.png",
+								describe:'天然氧吧,天然氧吧...'
+							},
+							{
+								img:"../../static/home/bg3.png",
+								describe:'天然氧吧,天然氧吧...'
+							}
+						]
+					},
+					{
+						title:"户外活动",
+						describe:"旅行教育，边玩边学",
+						background_img:"../../static/home/huodong.png",
+						background_color:['#8AE6E4','#FFFCFA'],
+						tags:['汽车露营','汽车露营','汽车露营','汽车露营','汽车露营','汽车露营'],
+						content:[
+							{
+								img:"../../static/home/bg2.png",
+								describe:'佛顶山汽车露营,佛顶山汽车露营...'
+							},
+							{
+								img:"../../static/home/bg2.png",
+								describe:'佛顶山汽车露营,佛顶山汽车露营...'
+							},
+							{
+								img:"../../static/home/bg2.png",
+								describe:'佛顶山汽车露营,佛顶山汽车露营...'
+							}
+						]
+					},
+					{
+						title:"文化体验",
+						describe:"旅行教育，边玩边学",
+						background_img:"../../static/home/tiyan.png",
+						background_color:['#F8BBB8','#FFFCFA'],
+						tags:['篝火晚会','篝火晚会','篝火晚会','篝火晚会','篝火晚会','篝火晚会'],
+						content:[
+							{
+								img:"../../static/home/bg2.png",
+								describe:'篝火晚会,篝火晚会...'
+							},
+							{
+								img:"../../static/home/bg2.png",
+								describe:'篝火晚会,篝火晚会...'
+							},
+							{
+								img:"../../static/home/bg2.png",
+								describe:'篝火晚会,篝火晚会...'
+							}
+						]
+					}
 				]
 			}
 		},
@@ -191,7 +225,24 @@
 
 		},
 		methods: {
-
+			//导航跳转
+			path:function(e){
+				let url = e;
+				console.log(url)
+				uni.navigateTo({
+					url:"url"
+				})
+			},
+			// 精彩视频滑动
+			scroll: function(e) {
+				this.old.scrollTop = e.detail.scrollTop
+			},
+			//跳转定制游
+			formulate:function(e){
+				uni.navigateTo({
+					url:"/pages/formulate/index"
+				})
+			}
 		}
 	}
 </script>
@@ -243,6 +294,7 @@
 		margin-top: -70rpx;
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 50rpx;
 	}
 	.home_center .centerlist{
 		
@@ -332,7 +384,6 @@
 	.gengduo_more{
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 1rpx solid #F7F7F7;
 		padding-bottom: 10rpx;
 	}
 	.gengduo{
@@ -340,135 +391,148 @@
 		float: right;
 		margin: 0 50rpx;
 	}
-	.jqxq{
-		text-align: center;
-		font-weight: bold;
-		line-height:40rpx;
-		margin: 10rpx 0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-	.jqxq_border{
-		background:#D4D4D4;
-		width: 50rpx;
-		height: 4rpx;
-	}
-	.jingcai_video{
-		display: block;
-		padding: 20rpx 30rpx;
-		background-color: #FFFFFF;
-		margin-top: 30rpx;
-		
-	}
-	.block{
-		display: flex;
-		justify-content: space-between;
-	}
-	.jingcai_video .title{
-		font-size: 35rpx;
-		font-weight: bold;
-		display: flex;
-	}
-	.title_icon{
-		width: 6rpx;
-		height: 100%;
-		background: #009944;
-		margin-right: 20rpx;
-	}
-	.more{
-		display: flex;
-		align-items: center;
-		color: #009944;
-		font-size: 28rpx;
-	}
-	.moreicon{
-		margin: 0 10rpx;
-	}
+	/* 精彩视频 */
 	.video{
-		width: 100%;
+		margin: 30rpx;
+	}
+	.video-top{
 		display: flex;
-		white-space: nowrap;
-		height: 300rpx;
-		margin: 30rpx 0;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 	}
-	.biwan{
-		
+	.video-tel{
+		border-left:6rpx solid #07C160 ;
+		padding-left: 20rpx;
+		font-size: 36rpx;
+		font-weight: bold;
 	}
-	.image{
-		margin: 10rpx 0;
-		width:100%;
-		border: none;
-		height: 280rpx;
-		position: absolute;
-		
+	.inc{
+		display: flex;
+		flex-direction: row;
 	}
-	scroll-view{
+	.inc>view{
+		font-size: 28rpx;
+		color: #07C160;
+		margin-right: 10rpx;
+	}
+	.scroll-view{
 		width: 100%;
 		height: 300rpx;
+		margin-top: 30rpx;
 		white-space: nowrap;
 		
 	}
-	.baofang{
+	.scroll-view-con{
+		display: inline-block;
+		height: 100%;
+		width: 80%;
+		margin-left: 30rpx;
+		background: #000000;
+		border-radius: 25rpx;
+		padding: 20rpx 0rpx;
+		position: relative;
+	}
+	.video-img{
+		width: 100%;
+		height: 100%;
 		
+	}
+	.bf{
+		display: inline-block;
+		position: relative;
+		top: -80rpx;
+		left: -55%;
 		width: 100rpx;
 		height: 100rpx;
-		border-radius: 100%;
-		z-index: 15;
+		z-index: 1;
+		/* opacity: 0.5; */
 	}
-	.item_video{
-		
-		position: relative;
-		display: inline-block;
-		width: 80%;
-		height: 100%;
-		margin: 0 20rpx;
-		background-color: #000000;
-		border-radius: 15rpx;
-		overflow: hidden;
-		
-	}
-	.item_video_block{
+	/* 楼层（） */
+	.floor{
+		margin: 30rpx;
+		background: #ffffff;
+		border-radius: 20rpx;
+		padding-bottom: 20rpx;
 		display: flex;
-		border: 1rpx solid red;
+		flex-direction: column;
+	}
+	.floor-top{
+		width: 100%;
+		height: 200rpx;
+		border-radius: 10rpx 10rpx 0rpx 0rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0rpx 30rpx;
+		
+		
+	}
+	.floor-top-tel>view{
+		font-size: 30rpx;
+		font-weight: bold;
+		margin-top: 15rpx;
+	}
+	.floor-top-img{
+		width: 180rpx;
+		height: 180rpx;
+		
+	}
+	.floor-top-img>image{
+		width: 100%;
+		height: 100%;
+	}
+	.floor-zj{
+		margin-top: 10rpx;
+		padding:20rpx 32rpx;
+	}
+	.floor-zj-tag{
+		float: left;
+		width: 30%; 
+		height: 60rpx;
+		line-height: 60rpx;
+		background: #F7F8FC;
+		font-size: 30rpx;
+		color: #666666;
+		margin-left: 3%;
+		margin-top: 20rpx;
+		text-align: center;
+		font-size: 30rpx;
+	}
+	.floor-bottom{
+		padding:20rpx 32rpx;
+	}
+	.floor-bottom-tag{
+		float: left;
+		width: 30%;
+		margin-left: 3%;
+		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		height: 100%;
-	}
-	.item_video:first-child{
-		margin-left: 0rpx;
-	}
-	.biwan_img .item_video{
-		width: 300rpx;
-		height: 300rpx;
-		display:inline-block;
-		margin: 0 10rpx;
-		color: #000000;
-		background: #FFFFFF;
-	}
-	.biwan_img .item_video .image{
 		
-		height: 200rpx;
+	}
+	.floor-bottom-tag>view{
+		width: 100%;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
 		overflow: hidden;
-		margin: 0;
-		border-radius: 20rpx;
-	}
-	.biwan_img .item_video .title{
-		position: relative;
+		margin-top: 10rpx;
+		font-size: 28rpx;
+		color: #464646;
 		
-		font-size: 30rpx;
-		font-weight: normal;
-		line-height: 80rpx;
-		margin: 0 20rpx;
-		margin-top: 200rpx;
 	}
-	.biwan_img .item_video:first-child{
-		
-		margin-left: 0;
+	.floor-bottom-tag>image{
+		width: 100%;
+		border-radius: 15rpx;
+		height: 150rpx;
 	}
-	.biwan_img scroll-view{
-		height: 300rpx;
-		color: #FFFFFF;
+/* 	.floor-top:first-of-type{
+		background-image: linear-gradient(#FCA67B,#FFFCFA);
 	}
+	.floor-top:nth-last-of-type(1){
+		background-image: linear-gradient(#F9EDAA,#FFFCFA);
+	} */
 </style>
