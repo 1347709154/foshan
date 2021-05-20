@@ -1,6 +1,6 @@
 {
     "name" : "fodingshan-app",
-    "appid" : "__UNI__4D1C6A0",
+    "appid" : "",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -67,5 +67,14 @@
     },
     "uniStatistics" : {
         "enable" : false
+    },
+    "h5" : {
+        "sdkConfigs" : {
+            "maps" : {
+                "qqmap" : {
+                    "key" : "PTRBZ-SIC6X-TK34V-T7QSO-E76Q3-SCF3J"
+                }
+            }
+        }
     }
 }
