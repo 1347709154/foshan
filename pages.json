@@ -317,11 +317,45 @@
             
         }
         ,{
+			//民宿详情 提交订单
             "path" : "pages/homestay/houseorder",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 获取民宿核销码
+            "path" : "pages/homestay/getqrcode",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "支付",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+			// 秒杀
+            "path" : "pages/seckill/seckill",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "限时活动",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#D7351C",
+				"navigationBarTextStyle":"white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/seckill/group",
+            "style" :                                                                                    
+            {
+               "navigationBarTitleText": "限时拼团",
+               "enablePullDownRefresh": false,
+               "navigationBarBackgroundColor":"#D7351C",
+               "navigationBarTextStyle":"white"
             }
             
         }

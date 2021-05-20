@@ -536,7 +536,7 @@
 		height: 105rpx;
 		line-height: 105rpx;
 		background: #FFFFFF;
-		position: absolute;
+		position: fixed;
 		padding: 0 20rpx;
 		bottom: 0;
 		left: 0;
