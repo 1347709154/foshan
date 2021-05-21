@@ -16,7 +16,8 @@
 			"path": "pages/dongtai/index",
 			
 			"style": {
-				"navigationBarTitleText": "动态"
+				"navigationBarTitleText": "动态",
+				"navigationStyle":"custom"
 			}
 		},
 		{
@@ -561,11 +562,11 @@
 				"text":"动态",
 				"pagePath":"pages/dongtai/index",
 				"iconPath":"static/icon/dongtai_.png",
-				"selectedIconPath":"static/icon/dongtai.png"
+				"selectedIconPath":"static/icon/dongtaisel.png"
 			},{
 				"text":"我的",
 				"pagePath":"pages/my/index",
-				"iconPath":"static/icon/daohang_.png",
+				"iconPath":"static/icon/daohang2.png",
 				"selectedIconPath":"static/icon/daohang.png "
 			}
 		]
