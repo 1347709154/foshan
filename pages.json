@@ -280,7 +280,6 @@
 				"navigationBarTitleText": "确认订单"
 			}
 		}
-<<<<<<< HEAD
         ,{
 			// 发布
             "path" : "pages/release/release",
@@ -507,8 +506,6 @@
             }
             
         }
-=======
->>>>>>> 366c4e251b6423b41a365f8a8ed36ae0185f80a1
     ],
 	"tabBar":{
 		"color":"#000000",
