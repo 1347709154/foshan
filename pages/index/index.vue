@@ -130,7 +130,7 @@
 					},{
 						img:'../../static/home/zhiyuanzhe.png',
 						title:'志愿者',
-						path:'/pages/volunteer/index'
+						path:'pages/volunteer/index'
 					}
 				],
 				floorlist:[
@@ -230,7 +230,7 @@
 				let url = e;
 				console.log(url)
 				uni.navigateTo({
-					url:"url"
+					url:"/"+url
 				})
 			},
 			// 精彩视频滑动

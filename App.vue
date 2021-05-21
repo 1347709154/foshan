@@ -19,4 +19,16 @@
 	// view{
 	// 	font-family:'SimHei';
 	// }
+		.content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+	.left{
+		float: left;
+	}
+	.right{
+		float: right;
+	}
 </style>
