@@ -26,7 +26,7 @@
 			<!-- 购票 导游预约 -->
 			<view class="pay_piao">
 				<view class="yuyue">
-					<view class="goupiao_con">
+					<view class="goupiao_con" @click="scenic">
 						<view class="title">购票</view>
 						<view class="miaosu">购票轻松游</view>	
 					</view>
@@ -34,7 +34,7 @@
 				</view>
 				<view class="yuyue" @click="formulate">
 					<view class="goupiao_con">
-						<view class="title">导游预约</view>
+						<view class="title">定制游</view>
 						<view class="miaosu">轻松了解民俗文化</view>
 					</view>
 					<image class="icon" src="../../static/home/daoyou.png" mode="widthFix"></image>
@@ -81,12 +81,12 @@
 				</view>
 			</view>
 			<view class="floor-zj">
-				<view class="floor-zj-tag"  v-for="(items,idx) in item.tags">{{items}}</view>
+				<view class="floor-zj-tag"  v-for="(items,idx) in item.tags" @click="fool(item.type,items.tag_id)">{{items.value}}</view>
 			</view>
 			<view class="floor-bottom" >
-				<view class="floor-bottom-tag" v-for="(it,idex) in item.content">
+				<view class="floor-bottom-tag" v-for="(it,idex) in item.content"  @click="fool(item.type)">
 					<image :src="it.img" mode="scaleToFill"></image>
-					<view>{{it.describe}}</view>
+					<view >{{it.describe}}</view>
 				</view>
 			</view>
 		</view>
@@ -106,25 +106,34 @@
 				videolist:['../../static/home/bg2.png','../../static/home/bg3.png','../../static/home/bg1.png'],
 				list:[
 					{
+						path:"pages/introduce/introduce",
 						img:'../../static/home/lvyougonglv.png',
-						title:'路由攻略'
-					},{
-						path: "/pages/product/index",
-						img:'../../static/home/techan.png',
-						title:'当地特产'
-					},{
-						img:'../../static/home/dingzhiyou.png',
-						title:'定制游'
-					},{
+						title:'景点介绍'
+					},
+					{
+						path:"pages/homestay/homestay",
 						img:'../../static/home/minsu.png',
-						title:'民宿客栈'
+						title:'民宿'
 					},{
+						path:"pages/food/food",
 						img:'../../static/home/meishi.png',
-						title:'美食必享'
+						title:'美食'
+					},
+					{
+						path: "pages/product/index",
+						img:'../../static/home/techan.png',
+						title:'特产'
 					},{
+						path: "pages/guide-pre/index",
+						img:'../../static/user/Pre.png',
+						title:'导赏预约'
+					},
+					{
+						path: "pages/seckill/seckill",
 						img:'../../static/home/xianshihuodong.png',
-						title:'限时活动'
+						title:'活动'
 					},{
+						path: "pages/notice/notice",
 						img:'../../static/home/gongg.png',
 						title:'公告'
 					},{
@@ -135,11 +144,31 @@
 				],
 				floorlist:[
 					{
+						type:"jy",
 						title:"生态教育",
 						describe:"旅行教育，边玩边学",
 						background_img:"../../static/home/jiaoyu.png",
 						background_color:['#FCA67B','#FFFCFA'],
-						tags:['研学旅行','研学旅行','研学旅行','研学旅行','研学旅行','研学旅行'],
+						tags:[
+								{
+									value:"研学旅行",
+									tag_id:1
+								},{
+									value:"研学旅行",
+									tag_id:2
+								},{
+									value:"研学旅行",
+									tag_id:3
+								},{
+									value:"研学旅行",
+									tag_id:4
+								},{
+									value:"研学旅行",
+									tag_id:5
+								},{
+									value:"研学旅行",
+									tag_id:6
+								}],
 						content:[
 							{
 								img:"../../static/home/bg1.png",
@@ -156,12 +185,34 @@
 						]
 					},
 					{
+						type:"sl",
 						title:"森林康养",
 						describe:"旅行教育，边玩边学",
 						background_img:"../../static/home/jiankang.png",
 						background_color:['#F9EDAA','#FFFCFA'],
-						tags:['天然氧吧','天然氧吧','天然氧吧','天然氧吧','天然氧吧','天然氧吧'],
+						tags:[
+							{
+								value:"天然氧吧",
+								tag_id:1
+							},{
+								value:"天然氧吧",
+								tag_id:2
+							},{
+								value:"天然氧吧",
+								tag_id:3
+							},{
+								value:"天然氧吧",
+								tag_id:4
+							},{
+								value:"天然氧吧",
+								tag_id:5
+							},{
+								value:"天然氧吧",
+								tag_id:6
+							}],
+							
 						content:[
+							
 							{
 								img:"../../static/home/bg3.png",
 								describe:'天然氧吧,天然氧吧...'
@@ -177,11 +228,31 @@
 						]
 					},
 					{
+						type:"ly",
 						title:"户外活动",
 						describe:"旅行教育，边玩边学",
 						background_img:"../../static/home/huodong.png",
 						background_color:['#8AE6E4','#FFFCFA'],
-						tags:['汽车露营','汽车露营','汽车露营','汽车露营','汽车露营','汽车露营'],
+						tags:[
+							{
+								value:"汽车露营",
+								tag_id:1
+							},{
+								value:"汽车露营",
+								tag_id:2
+							},{
+								value:"汽车露营",
+								tag_id:3
+							},{
+								value:"汽车露营",
+								tag_id:4
+							},{
+								value:"汽车露营",
+								tag_id:5
+							},{
+								value:"汽车露营",
+								tag_id:6
+							}],
 						content:[
 							{
 								img:"../../static/home/bg2.png",
@@ -198,11 +269,31 @@
 						]
 					},
 					{
+						type:'ty',
 						title:"文化体验",
 						describe:"旅行教育，边玩边学",
 						background_img:"../../static/home/tiyan.png",
 						background_color:['#F8BBB8','#FFFCFA'],
-						tags:['篝火晚会','篝火晚会','篝火晚会','篝火晚会','篝火晚会','篝火晚会'],
+						tags:[
+							{
+								value:"篝火晚会",
+								tag_id:1
+							},{
+								value:"篝火晚会",
+								tag_id:2
+							},{
+								value:"篝火晚会",
+								tag_id:3
+							},{
+								value:"篝火晚会",
+								tag_id:4
+							},{
+								value:"篝火晚会",
+								tag_id:5
+							},{
+								value:"篝火晚会",
+								tag_id:6
+							}],
 						content:[
 							{
 								img:"../../static/home/bg2.png",
@@ -233,6 +324,12 @@
 					url:"/"+url
 				})
 			},
+			//购票
+			scenic:function(){
+				uni.navigateTo({
+					url:"/pages/goodsinfo/goodsinfo"
+				})
+			},
 			// 精彩视频滑动
 			scroll: function(e) {
 				this.old.scrollTop = e.detail.scrollTop
@@ -242,6 +339,31 @@
 				uni.navigateTo({
 					url:"/pages/formulate/index"
 				})
+			},
+			fool:function(fool,tag){
+				let foold = fool
+				let tag_id = tag
+				console.log(foold ==='jy');
+				if(foold ==='jy'){
+					uni.navigateTo({
+						url:'/pages/education/index'
+					})
+				}
+				if(foold==='sl'){
+					uni.navigateTo({
+						url:'/pages/forest/index'
+					})
+				}
+				if(foold==='ly'){
+					uni.navigateTo({
+						url:'/pages/outdoors/index'
+					})
+				}
+				if(foold==='ty'){
+					uni.navigateTo({
+						url:'/pages/culture/index'
+					})
+				}
 			}
 		}
 	}

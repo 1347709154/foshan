@@ -52,7 +52,7 @@
 			<view class="bottom-num">
 				￥<text style="font-weight: bold;font-size: 40rpx;">0.0</text>
 			</view>
-			<view class="toPay">去支付</view>
+			<view class="toPay" @click="Submit">提交</view>
 		</view>
 	</view>
 </template>
@@ -115,6 +115,12 @@
 			//人数加
 			add:function(e){
 				this.number = this.number+1
+			},
+			//提交订单
+			Submit:function(e){
+				uni.navigateTo({
+					url:"/pages/goodsinfo/gettiket"
+				})
 			}
 		}
 	}

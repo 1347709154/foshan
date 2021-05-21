@@ -1,5 +1,10 @@
 <template>
 	<view class="content">
+		<view class="fanhui">
+			<u-icon  size="40" name="arrow-left" class="inc" color="#161616" @tap="back"></u-icon>
+			<!-- <image src="../../static/scenic/jiantou.png" mode="" class="img1" @tap="back"></image> -->
+			支付
+		</view>
 		<view class="title">
 			<image src="../../static/order/chupiao.png" mode="" class="chupiao left"></image>
 			
@@ -22,11 +27,34 @@
 			return {
 				
 			};
+		},
+		methods:{
+			back:function(){
+				uni.navigateBack({
+					
+				})
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
+	.fanhui{
+		height: 100rpx;
+		width: 100%;
+		text-align: center;
+		line-height: 100rpx;
+		color: #000000;
+		font-size: 32rpx;
+		font-weight: bold;
+	}
+	.fanhui>.inc{
+		position: absolute;
+		left: 30rpx;
+		top: 15rpx;
+		width: 50rpx;
+		height: 50rpx;
+	}
 	.title{
 		height: 65rpx;
 		line-height: 65rpx;

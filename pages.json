@@ -16,8 +16,7 @@
 			"path": "pages/dongtai/index",
 			
 			"style": {
-				"navigationBarTitleText": "动态",
-				"navigationStyle":"custom"
+				"navigationBarTitleText": "动态"
 			}
 		},
 		{
@@ -280,8 +279,42 @@
 			"style": {
 				"navigationBarTitleText": "确认订单"
 			}
-		}
-        ,{
+		},{
+			//生态教育
+			"path": "pages/education/index",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},{
+			//户外活动
+			"path": "pages/outdoors/index",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			//森林健康
+			"path": "pages/forest/index",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			//文化体验
+			"path": "pages/culture/index",
+			"style": {
+				"navigationStyle":"custom",
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+        {
 			// 发布
             "path" : "pages/release/release",
             "style" :                                                                                    
@@ -398,7 +431,8 @@
             "path" : "pages/goodsinfo/gettiket",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "出票",
+                "navigationStyle":"custom",
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -527,11 +561,11 @@
 				"text":"动态",
 				"pagePath":"pages/dongtai/index",
 				"iconPath":"static/icon/dongtai_.png",
-				"selectedIconPath":"static/icon/dongtaisel.png"
+				"selectedIconPath":"static/icon/dongtai.png"
 			},{
 				"text":"我的",
 				"pagePath":"pages/my/index",
-				"iconPath":"static/icon/daohang2.png",
+				"iconPath":"static/icon/daohang_.png",
 				"selectedIconPath":"static/icon/daohang.png "
 			}
 		]

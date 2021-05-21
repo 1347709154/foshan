@@ -69,8 +69,8 @@
 				bgimg:'../../static/scenic/gou.jpeg',
 				geshou:'林俊杰',
 				keywords:'这是一个关键词开发商大方身份卡升级',
-				addname:'佛顶山生态旅游景区',
-				loction:'旅游度假区',
+				addname:'篝火晚会',
+				loction:'佛顶山生态旅游项目',
 				richtext:`
 					<p>　　巴尼小镇是云南省怒江傈僳族自治州首个易地扶贫搬迁集中安置点。从山上的金满村搬迁到巴尼小镇，近3年的时间里，搬迁户们的生活发生了可喜的变化。</p>
 					<p class="photo_img_20190808" style="text-align: center;"><img src="//p2.img.cctvpic.com/photoworkspace/contentimg/2020/07/16/2020071613380766481.jpg" alt="泸水市巴尼小镇易地扶贫搬迁安置点全景 李韩金摄（人民视觉）" isflag="1"></p>
@@ -164,6 +164,7 @@
 		z-index: 1000;
 		border-top-left-radius: 50rpx;
 		border-top-right-radius: 50rpx;
+		margin-bottom: 120rpx;
 		background: white;
 		.topbox{
 			height: 90rpx;
