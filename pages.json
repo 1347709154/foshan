@@ -554,6 +554,7 @@
             
         }
         ,{
+			// 拼团
             "path" : "pages/seckill/group",
             "style" :                                                                                    
             {
@@ -563,7 +564,7 @@
                "navigationBarTextStyle":"white"
             }
             
-        }
+        }        
     ],
 	"tabBar":{
 		"color":"#000000",

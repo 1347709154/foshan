@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<view class="bgbox">
+		<view class="bgbox" @tap="gopin">
 			<image src="../../static/scenic/pingtuan.png" mode=""></image>
 		</view>
 		<view class="listitem">
@@ -215,6 +215,11 @@
 			},
 			goosinfo(){
 				console.log(111)
+			},
+			gopin(){
+				uni.navigateTo({
+					url:"./group"
+				})
 			}
 		},
 		filters: {
