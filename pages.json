@@ -109,6 +109,12 @@
 			}
 		},
 		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "我的主页"
+			}
+		},
+		{
 			"path": "pages/jifen/index",
 			"style": {
 				"navigationBarTitleText": "积分管理"
@@ -124,6 +130,16 @@
 			"path": "pages/jifen/duihuan",
 			"style": {
 				"navigationBarTitleText": "积分兑换"
+			}
+		},{
+			"path": "pages/jifen/details",
+			"style": {
+				"navigationBarTitleText": "商品详情"
+			}
+		},{
+			"path": "pages/jifen/order",
+			"style": {
+				"navigationBarTitleText": "提交订单"
 			}
 		},
 		{
@@ -220,7 +236,13 @@
 			"style": {
 				"navigationBarTitleText": "售后/退款"
 			}
+		},{
+			"path": "pages/order/refund/index",
+			"style": {
+				"navigationBarTitleText": "退款详情"
+			}
 		},
+		
 		{
 			"path": "pages/order/change/index",
 			"style": {

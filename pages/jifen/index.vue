@@ -17,7 +17,7 @@
 		
 		<!-- 商品列表 -->
 		<view class="list">
-			<view class="list-ul">
+			<view class="list-ul" @click="details">
 				<view class="list-img">
 					<image src="../../static/banner.png"></image>
 				</view>
@@ -63,6 +63,12 @@
 			duihuan:function(e){
 				uni.navigateTo({
 					url:"/pages/jifen/duihuan"
+				})
+			},
+			//商品详情
+			details:function(e){
+				uni.navigateTo({
+					url:"/pages/jifen/details"
 				})
 			}
 		}

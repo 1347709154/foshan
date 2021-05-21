@@ -155,6 +155,9 @@
 				totalmoney:300
 			};
 		},
+		onLoad(options){
+			this.give_type=options.give_type;
+		},
 		methods: {
 			// 更改属性值
 			change(i) {
@@ -188,7 +191,7 @@
 			// 跳转出票
 			gettitkt(){
 				uni.navigateTo({
-					url:"./gettiket"
+					url:"/pages/guide-pre/pre?type=scenic"
 				})
 			}
 		}

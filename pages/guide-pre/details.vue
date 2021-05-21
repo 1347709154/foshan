@@ -61,7 +61,7 @@
 			//跳转支付
 			topay:function(e){
 				uni.navigateTo({
-					url:"/pages/guide-pre/pre"
+					url:"/pages/guide-pre/pre?type=pre" 
 				})
 			}
 		}

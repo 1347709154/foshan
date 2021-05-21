@@ -73,7 +73,7 @@
 			<view class="bottom-num">
 				￥<text style="font-weight: bold;font-size: 40rpx;">0.0</text>
 			</view>
-			<view class="toPay">去支付</view>
+			<view class="toPay" @click="topay">去支付</view>
 		</view>
 	</view>
 </template>
@@ -89,8 +89,8 @@
 				
 			}
 		},
-		onLoad() {
-
+		onLoad(options) {
+			this.type= options.type
 		},
 		methods: {
 			//配送方式
@@ -112,6 +112,12 @@
 			payxy:function(e){
 				
 				this.pay_xy=!this.pay_xy;
+			},
+			topay:function(e){
+				let type= this.type;
+				uni.navigateTo({
+					url:"/pages/goodsinfo/gettiket?type=" +this.type
+				})
 			}
 		}
 	}

@@ -1,14 +1,17 @@
 <template>
 	<view class="content">
 		<!-- 搜索 -->
-		<view class="search">
-			<view class="search-box">
-				<input  placeholder ="搜索" />
-				<image src="../../static/home/sousuo.png"></image>
+		<view class="searchbox">
+			<view class="left input">
+				<u-input v-model="value" class="search left" height="62" input-align="center" placeholder="搜索" confirm-type="search"
+				 @confirm="search" />
+				<image src="../../static/scenic/search.png" mode="" class="right srarchicon"></image>
 			</view>
-			<view class="search-inc" @click="shows">
-				<view>筛选</view>
-				<image src="../../static/home/saixuan.png" ></image>
+			<view class="right filtrate" @click="show = true">
+				<view class="left text">
+					筛选
+				</view>
+				<image src="../../static/scenic/loudou.png" mode="" class="right loudou"></image>
 			</view>
 		</view>
 		<!-- 排序 -->
@@ -48,6 +51,7 @@
 	export default {
 		data() {
 			return {
+				value: '',
 				title: 'Hello',
 				btnnum:0,
 				show:false,
@@ -97,7 +101,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	page{
 		background: #F2F5FA;
 	}
@@ -108,13 +112,12 @@
 		justify-content: center;
 	}
 	/* 搜索 */
-	.search{
+/* 	.search{
 		position: fixed;
 		top:44px;
 		left: 0;
 		height: 120rpx;
 		width: 100%;
-		/* background:#FFF7CC ; */
 		padding: 20rpx 32rpx;
 		display: flex;
 		flex-direction: row;
@@ -158,13 +161,57 @@
 		margin-right: 25rpx;
 		font-size: 32rpx;
 		color: #007AFF;
+	} */
+	.searchbox {
+		height: 62rpx;
+		margin-top: 17rpx;
+		width: 100%;
+	}
+	
+	.input {
+		width: 579rpx;
+		height: 62rpx;
+		line-height: 62rpx;
+		background: #FFFFFF;
+		border-radius: 2rpx;
+		margin-left: 8rpx;
+	
+		.search {
+			width: 500rpx;
+			text-align: center;
+		}
+	}
+	
+	.srarchicon {
+		width: 34rpx;
+		height: 33rpx;
+		margin-top: 15rpx;
+		margin-right: 25rpx;
+	}
+	
+	.filtrate {
+		height: 62rpx;
+		width: 100rpx;
+		margin-right: 30rpx;
+	
+		.text {
+			line-height: 62rpx;
+			color: #5AA9FB;
+			font-size: 26rpx;
+		}
+	
+		.loudou {
+			width: 32rpx;
+			height: 32rpx;
+			margin-top: 15rpx;
+		}
 	}
 	/* 排序 */
 	.sort{
 		background: #FFFFFF;
 		height: 120rpx;
 		width: 100%;
-		margin-top: 120rpx;
+		margin-top: 10rpx;
 		padding: 0rpx 32rpx;
 	}
 	.sort-ul{

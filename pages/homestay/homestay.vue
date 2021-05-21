@@ -225,7 +225,7 @@
 		margin-top: 17rpx;
 		margin-left: 25rpx;
 		height: 237rpx;
-		width: auto;
+		width: 430rpx;
 	}
 	#name{
 		font-size: 36rpx;

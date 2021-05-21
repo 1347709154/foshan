@@ -100,7 +100,7 @@
 			// 跳转生成订单
 			creatorder(){
 				uni.navigateTo({
-					url:"./submitorder"
+					url:"./submitorder?type=scenic"
 				})
 			}
 		}

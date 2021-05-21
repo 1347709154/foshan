@@ -8,7 +8,7 @@
 		<view class="goods-box">
 			<view class="goods-name">【特产】铜仁石阡特产黄水粑4只装</view>
 			<view class="goods-money">
-				<text style="margin-right: 15rpx;">￥</text>26.00
+				2600积分
 			</view>
 			<view class="goods-desc">已售251件·包邮·48小时发货</view>
 		</view>
@@ -39,7 +39,7 @@
 					<u-icon  size="45" name="share"></u-icon>
 				</view>
 				<view class="yy" @click="order">
-					<view>立即购买</view>
+					<view>立即兑换</view>
 				</view>
 			</view>
 		</view>
@@ -72,7 +72,7 @@
 			//跳转订单
 			order:function(){
 				uni.navigateTo({
-					url:"/pages/product/order?type=food"
+					url:"/pages/jifen/order"
 				})
 			}
 		}

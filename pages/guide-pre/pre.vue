@@ -80,10 +80,11 @@
 				number:0,
 				pay_type:0,//支付方式
 				pay_xy:false,//是否同意支付协议
+				type:''//支付类型
 			}
 		},
-		onLoad() {
-
+		onLoad(options) {
+			this.type= options.type
 		},
 		methods: {
 			//选择日期
@@ -119,7 +120,7 @@
 			//提交订单
 			Submit:function(e){
 				uni.navigateTo({
-					url:"/pages/goodsinfo/gettiket"
+					url:"/pages/goodsinfo/gettiket?type=" +this.type
 				})
 			}
 		}

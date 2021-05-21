@@ -193,7 +193,7 @@
 			},
 			getqrcode(){
 				uni.navigateTo({
-					url:"./getqrcode"
+					url:"/pages/guide-pre/pre?type=hotel"
 				})
 			}
 		},

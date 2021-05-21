@@ -93,7 +93,7 @@
 			//跳转预约确定
 			subscribe:function(e){
 				uni.navigateTo({
-					url:"/pages/guide-pre/pre"
+					url:"/pages/guide-pre/pre?type=scenic"
 				})
 			}
 		}

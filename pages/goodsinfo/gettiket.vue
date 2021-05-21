@@ -28,11 +28,35 @@
 				
 			};
 		},
+		onLoad(options) {
+			console.log(options)
+			this.type= options.type
+		},
 		methods:{
 			back:function(){
-				uni.navigateBack({
-					
-				})
+				let type = this.type;
+				if(type ==='scenic'){
+					uni.redirectTo({
+						url:"/pages/order/scenic/index"
+					})
+				}
+				
+				if(type ==='hotel'){
+					uni.redirectTo({
+						url:"/pages/order/hotel/index"
+					})
+				}
+				
+				if(type ==='food'){
+					uni.redirectTo({
+						url:"/pages/order/food/index"
+					})
+				}
+				if(type ==='pre'){
+					uni.redirectTo({
+						url:"/pages/order/pre/index"
+					})
+				}
 			}
 		}
 	}

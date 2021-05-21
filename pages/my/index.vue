@@ -40,7 +40,7 @@
 				</view>
 				<view style="margin-top: 20rpx;font-size: 32rpx;">收藏</view>
 			</view>
-			<view class="card-ul">
+			<view class="card-ul" @click="home">
 				<view style="font-size: 40rpx;font-weight: bold;">
 					<image src="../../static/user/zhuye.png" style="width: 50rpx;height: 50rpx;"></image>
 				</view>
@@ -82,6 +82,10 @@
 				<view class="order-bottom-ul" @click="aftersales">
 					<image src="../../static/user/shouhou.png" mode="aspectFit"></image>
 					<view>售后/退款</view>
+				</view>
+				<view class="order-bottom-ul" @click="pre">
+					<image src="../../static/user/Pre.png" mode="aspectFit"></image>
+					<view>我的预约</view>
 				</view>
 			</view>
 		</view>
@@ -167,6 +171,12 @@
 					url:"/pages/footprint/index"
 				})
 			},
+			//我的主页
+			home:function(e){
+				uni.navigateTo({
+					url:"/pages/home/index"
+				})
+			},
 			//景区订单
 			scenic:function(e){
 				uni.navigateTo({
@@ -201,6 +211,12 @@
 			aftersales:function(e){
 				uni.navigateTo({
 					url:"/pages/order/after-sales/index"
+				})
+			},
+			//预约订单
+			pre:function(e){
+				uni.navigateTo({
+					url:"/pages/order/Pre/index"
 				})
 			},
 			//优惠券

@@ -37,7 +37,7 @@
 				</view> -->
 				<view class="order-list-bottom" v-if="item.state==1">
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">删除记录</view>
-					<view class="shiyong" style="background: #FF0000;">查看详情</view>
+					<view class="shiyong" style="background: #FF0000;" @click="details">查看详情</view>
 				</view>
 				<!-- <view class="order-list-bottom" v-if="item.state==3">
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">申请发票</view>
@@ -118,10 +118,15 @@
 		methods: {
 			// 顶部导航切换
 			change(e) {
-				
 				this.btnnum = e
 				 console.log(this.btnnum)
 			},
+			//查看详情
+			details:function(e){
+				uni.navigateTo({
+					url:"/pages/order/refund/index"
+				})
+			}
 		}
 	}
 </script>
