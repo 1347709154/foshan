@@ -4,21 +4,21 @@
 		<!-- 身份证信息 -->
 		<view class="card-inpt">
 			<view class="user-name">
-				<view style="line-height: 150rpx;">
+				<view style="line-height: 100rpx;">
 					<text style="color: red;">*</text>
 					<label>真实姓名</label>
 				</view>
 				<view class="user-name-ipt" style="margin-left: 10rpx;">
-					<input placeholder-style="font-size: 24rpx;" placeholder="请输入您的真实姓名，认证后不可更改"/>
+					<input placeholder-style="font-size: 22rpx;" placeholder="请输入您的真实姓名，认证后不可更改"/>
 					</view>
 			</view>
 			<view class="user-name">
-				<view style="line-height: 150rpx;">
+				<view style="line-height: 100rpx;">
 					<text style="color: red;">*</text>
 					<label>身份证号</label>
 				</view>
 				<view class="user-name-ipt" style="margin-left: 10rpx;">
-					<input type="idcard" placeholder-style="font-size: 24rpx;" placeholder="请输入您的真实姓名对应的身份证号"/>
+					<input type="idcard" placeholder-style="font-size: 22rpx;" placeholder="请输入您的真实姓名对应的身份证号"/>
 					</view>
 			</view>
 		</view>
@@ -34,7 +34,7 @@
 				</view>
 			</view>
 			<view class="idcard-tel">
-				<image src="/static/user/sigh.png" mode="aspectFill"></image>
+				<image src="/static/user/sigh.png" mode="scaleToFill"></image>
 				<view class="idcard-tel-te">
 					<view>证件必须是清晰彩色原件电子版本。可以是扫描件或者数码拍摄 照片。</view>
 					<view>支持jpg、png、jpeg的图片格式</view>
@@ -86,27 +86,27 @@
 		padding: 0rpx 32rpx;
 	}
 	.user-name{
-		height: 150rpx;
+	/* 	height: 150rpx; */
 		width: 100%;
 		display: flex;
 		flex-direction: row;
-		font-size: 36rpx;
+		font-size: 30rpx;
 		font-weight: bold;
+		margin-top: 30rpx;
 	}
 	.user-name-ipt{
 		border: 1rpx solid #ddd;
-		height: 100rpx;
-		margin-top: 25rpx;
+		height: 80rpx;
+		margin-top: 15rpx;
 		padding: 0rpx 10rpx;
 		width: 480rpx;
-		
-	
 	}
 	.user-name-ipt>input{
-		height: 100rpx;
-		line-height: 100rpx;
-		font-size: 32rpx;
+		height: 80rpx;
+		line-height: 80rpx;
+		font-size: 28rpx;
 		color: #000000;
+	
 	}
 	/* 上传照片 */
 	.img-card{
@@ -120,7 +120,7 @@
 	.img-card-tetel{
 		margin-top: 50rpx;
 		color: #999999;
-		font-size: 38rpx;
+		font-size: 32rpx;
 		font-weight: bold;
 		text-align: left;
 	}
@@ -149,7 +149,7 @@
 		flex-direction: row;
 	}
 	.idcard-tel>image{
-		width: 50rpx;
+		width: 48rpx;
 		height: 40rpx;
 		margin-top: 25rpx;
 	}
@@ -164,7 +164,7 @@
 		width: 250rpx;
 		height: 80rpx;
 		line-height: 80rpx;
-		font-size: 36rpx;
+		font-size: 32rpx;
 		font-weight: bold;
 		text-align: center;
 		color: #FFFFFF;

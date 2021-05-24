@@ -1,28 +1,17 @@
 <template>
 	<view class="content">
 		<!-- 收藏列表 -->
-		<view class="list">
-			<view class="list-l">
-				<view style="margin-top: 25rpx;font-size: 34rpx;font-weight: bold;">金山雪海一日游</view>
-				<view style="width: 95%;margin-top: 30rpx;font-size: 34rpx;font-weight: bold;overflow: hidden;
-		text-overflow:ellipsis;white-space: nowrap;">金山雪海一日游金山雪海金山金山雪海一日游金山雪海金山</view>
-				<view style="width: 95%;margin-top: 30rpx;font-size: 32rpx;font-weight: bold;color: #8A8E99;">金山雪海一日游金山雪海金山</view>
-			</view>
-			<view class="list-r">
-				<image src="../../static/banner.png" mode="scaleToFill"></image>
-			</view>
+	<view class="list">
+		<view class="list-l">
+			<view style="margin-top: 25rpx;font-size: 32rpx;font-weight: bold;">金山雪海一日游</view>
+			<view style="width: 95%;margin-top: 30rpx;font-size: 30rpx;overflow: hidden;
+	text-overflow:ellipsis;white-space: nowrap;">金山雪海一日游金山雪海金山金山雪海一日游金山雪海金山</view>
+			<view style="width: 95%;margin-top: 30rpx;font-size: 32rpx;color: #8A8E99;">金山雪海一日游金山雪海金山</view>
 		</view>
-		<view class="list">
-			<view class="list-l">
-				<view style="margin-top: 25rpx;font-size: 34rpx;font-weight: bold;">金山雪海一日游</view>
-				<view style="width: 95%;margin-top: 30rpx;font-size: 34rpx;font-weight: bold;overflow: hidden;
-		text-overflow:ellipsis;white-space: nowrap;">金山雪海一日游金山雪海金山金山雪海一日游金山雪海金山</view>
-				<view style="width: 95%;margin-top: 30rpx;font-size: 32rpx;font-weight: bold;color: #8A8E99;">金山雪海一日游金山雪海金山</view>
-			</view>
-			<view class="list-r">
-				<image src="../../static/banner.png" mode="scaleToFill"></image>
-			</view>
+		<view class="list-r">
+			<image src="../../static/banner.png" mode="scaleToFill"></image>
 		</view>
+	</view>
 	</view>
 </template>
 

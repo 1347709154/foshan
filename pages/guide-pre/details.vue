@@ -116,7 +116,7 @@
 	/* 底部按钮 */
 	.bottom{
 		width: 100%;
-		height: 120rpx;
+		height: 100rpx;
 		position: fixed;
 		bottom: 0rpx;
 		left: 0rpx;
@@ -140,25 +140,25 @@
 	}
 	.bottom-x>view{
 		width: 120rpx;
-		height: 120rpx;
+		height: 100rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 	}
 	.bottom-x>view>image{
-		width: 60rpx;
-		height: 60rpx;
+		width: 40rpx;
+		height: 40rpx;
 	}
 	.bottom-r{
 		width: 630rpx;
-		height: 120rpx;
+		height: 100rpx;
 		display: flex;
 		flex-direction: row;
 	}
 	.fenxiang{
 		width: 50%;
-		height: 120rpx;
+		height: 100rpx;
 		background: #000000;
 		display: flex;
 		flex-direction: row;
@@ -169,7 +169,7 @@
 	}
 	.yy{
 		width: 50%;
-		height: 120rpx;
+		height: 100rpx;
 		display: flex;
 		flex-direction: row;
 		justify-content: center;

@@ -58,7 +58,7 @@
 		methods:{
 			goinfo(){
 				uni.navigateTo({
-					url:"./groupinfo"
+					url:"/pages/seckill/group-details"
 				})
 			}
 		}

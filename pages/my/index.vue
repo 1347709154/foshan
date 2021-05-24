@@ -124,8 +124,6 @@
 				<view style="margin-top: 20rpx;font-size: 30rpx;">账号管理</view>
 			</view>
 		</view>
-		<!-- 站位 -->
-		<view class="null"></view>
 		<!-- 拨打电话 -->
 		<view class="phone">
 			<image src="../../static/user/phone.png" mode="aspectFit"></image>
@@ -268,7 +266,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding-bottom: 120rpx;
+		padding-bottom: 20rpx;
 	}
 	/* 个人信息 */
 
@@ -453,12 +451,12 @@
 		align-items: center;
 		justify-content: center;
 	}
-	.null{
+	/* .null{
 		height: 120rpx;
 		width: 100%;
-	}
+	} */
 	.phone{
-		position: absolute;
+		position: fixed;
 		z-index: 99999;
 		top: 780rpx;
 		right: 32rpx;

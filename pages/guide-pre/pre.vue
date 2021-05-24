@@ -265,12 +265,12 @@
 		align-items: flex-end;
 	}
 	.type-l>image{
-		width: 55rpx;
-		height: 55rpx;
+		width: 45rpx;
+		height: 45rpx;
 	}
 	.type-l>view{
 		margin-left: 10rpx;
-		font-size: 36rpx;
+		font-size: 30rpx;
 		font-weight: bold;
 	}
 	/* 协议 */

@@ -230,19 +230,20 @@
 		background: #F7F7F7;
 		margin-top: 27rpx;
 		border-radius: 16px;
+		margin-bottom: 90rpx;
 	}
 	.yd{
 		width: 100%;
-		height: 100rpx;
+		height: 80rpx;
 		background: #00972E;
 		text-align: center;
-		line-height: 100rpx;
+		line-height: 80rpx;
 		position: fixed;
 		bottom: 0rpx;
 		left: 0rpx;
 		z-index: 99999;
 		color: #FFFFFF;
-		font-size: 30rpx;
+		font-size: 28rpx;
 		font-weight: bold;
 	}
 </style>
