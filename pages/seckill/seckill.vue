@@ -214,7 +214,9 @@
 				console.log(tempDate)
 			},
 			goosinfo(){
-				console.log(111)
+				uni.navigateTo({
+					url:"/pages/seckill/seckill-details"
+				})
 			},
 			gopin(){
 				uni.navigateTo({

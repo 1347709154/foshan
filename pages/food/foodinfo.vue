@@ -66,7 +66,7 @@
 	}
 	.btnbox{
 		margin-top: 25rpx;
-		width: 45rpx;
+		width: auto;
 		text-align: center;
 		font-size: 12px;
 	}

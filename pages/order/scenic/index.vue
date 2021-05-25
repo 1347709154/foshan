@@ -47,7 +47,7 @@
 				<view class="order-list-bottom" v-if="item.state==4">
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">申请发票</view>
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">再来一单</view>
-					<view class="shiyong" style="background: #FF0000;">评价</view>
+					<view class="shiyong" style="background: #FF0000;" @click="evaluate">评价</view>
 				</view>
 				<view class="order-list-bottom" v-if="item.state==5">
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">再来一单</view>
@@ -126,6 +126,12 @@
 			gaiqian:function(e){
 				uni.navigateTo({
 					url:"/pages/order/change/index"
+				})
+			},
+			//跳转评论
+			evaluate:function(e){
+				uni.navigateTo({
+					url:"/pages/order/evaluate/index"
 				})
 			}
 		}

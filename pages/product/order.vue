@@ -66,7 +66,7 @@
 		<!-- 协议 -->
 		<view class="pay-xy">
 			<radio value="" :checked="pay_xy" style="transform:scale(0.7)"  color="#09BB07" @click="payxy"/>
-			<view>我已阅读并同意<text style="color: #3287FE;">《支付协议》</text></view>
+			<view @click="payxy">我已阅读并同意<text style="color: #3287FE;">《支付协议》</text></view>
 		</view>
 		<!-- 底部支付 -->
 		<view class="bottom">
@@ -302,7 +302,7 @@
 	}
 	.type-l>view{
 		margin-left: 10rpx;
-		font-size: 36rpx;
+		font-size: 28rpx;
 		font-weight: bold;
 	}
 	/* 协议 */

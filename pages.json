@@ -248,6 +248,11 @@
 			"style": {
 				"navigationBarTitleText": "改签"
 			}
+		},{
+			"path": "pages/order/evaluate/index",
+			"style": {
+				"navigationBarTitleText": "评论"
+			}
 		},
 		{
 			"path": "pages/formulate/index",
@@ -552,6 +557,15 @@
 				"navigationBarTextStyle":"white"
             }
             
+        },{
+			// 秒杀详情
+            "path" : "pages/seckill/seckill-details",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "秒杀详情"
+                
+            }
+            
         }
         ,{
 			// 拼团
@@ -573,7 +587,16 @@
               
             }
             
-        }            
+        },{
+			// 拼团结果
+            "path" : "pages/seckill/group-order",
+            "style" :                                                                                    
+            {
+               "navigationBarTitleText": "拼团"
+              
+            }
+            
+        }           
     ],
 	"tabBar":{
 		"color":"#000000",

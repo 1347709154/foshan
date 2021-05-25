@@ -7,10 +7,7 @@
 		<!-- 商品信息 -->
 		<view class="goods-box">
 			<view class="goods-mun">
-				<view class="mun">
-					<view class="mun-x">¥{{goods.price_x}}</view>
-					<view class="mun-y">¥{{goods.price_y}}</view>
-				</view>
+				<view class="goods-mun-te">限时秒杀</view>
 				<view class="u-count-down">
 					<text>距结束</text>
 					<u-count-down :timestamp="86400" hide-zero-day="false" separator-color="#FFE9E8" separator-size="40" bg-color="#FFE9E8" color="#FF2222"></u-count-down>
@@ -24,33 +21,21 @@
 				</view>
 			</view>
 			<view class="goods-piece">
-				<view class="piece">
-					<view class="piece-pre">2人成团</view>
-					<view class="piece-mun">已拼 :{{goods.sold}}件</view>
+				<view class="mun">
+					<view class="mun-x">¥{{goods.price_x}}</view>
+					<view class="mun-y">¥{{goods.price_y}}</view>
 				</view>
-				<view class="tui">不支持7天无理由退货</view>
+				<view class="tui">已抢:{{goods.sold}}件</view>
 			</view>
 		</view>
-		<!-- 拼团列表 -->
-		<view class="spell-box">
-			<u-cell-item  title="这些人正在拼单，可直接参与" :arrow="true" value="查看更多" arrow-direction="arrow-right" class="u-cell-item" @click="show2"></u-cell-item>
-			<view class="spell" v-for="(item,index) in spelllist" v-if="index<=2">
-				<view class="spell-img">
-					<image :src="item.user_img"></image>
-					<view class="tuan">团长</view>
-					<view class="spell-name">{{item.user_name}}</view>
-				</view>
-				<view class="spell-bt">
-					<view class="spell-bt-ul">
-						<view>还差 <text style="color: #FF2628;margin-left: 5rpx;margin-right: 5rpx;font-weight: bold;">{{item.difference}}人</text>拼团成功 </view>
-						<view>剩余{{item.tmie}}</view>
-					</view>
-					<view class="bt" @click="gopin(item.user_img,item.user_name)">去拼团</view>
-				</view>
-			</view>
+		<!-- 导航栏 -->
+		<view class="nav">
+			<view @click="change(1)" class="nav-ul"><text :class="[btnnum==1?'actives':'text']">商品详情</text></view>
+			<view @click="change(2)" class="nav-ul"><text :class="[btnnum==2?'actives':'text']">评论</text></view>
+			
 		</view>
 		<!-- 商品评价 -->
-		<view class="evaluate">
+		<view class="evaluate" v-if="btnnum==2">
 			<view class="evaluate-tel">
 				<view class="evaluate-tel-pj">商品评价（99）</view>
 				<view class="gengduo">
@@ -82,8 +67,8 @@
 			</view>
 		</view>
 		<!-- 商品详情 -->
-		<view class="goods-details">
-			<view class="details">商品详情</view>
+		<view class="goods-details" v-if="btnnum==1">
+			<!-- <view class="details">商品详情</view> -->
 			<view class="richtext">
 				<u-parse :html="richtext"></u-parse>
 			</view>
@@ -104,7 +89,7 @@
 			</view>
 			<view class="bottom-r" @click="show1">
 				<view class="yy">
-					<view>发起拼团</view>
+					<view>立即购买</view>
 				</view>
 			</view>
 		</view>
@@ -135,36 +120,8 @@
 			</view>
 			<view class="Submit" @click="Submit">确定</view>
 		</u-popup>
-		<!-- 查看可拼团列表 -->
-		<u-popup v-model="showpin" mode="center" height="750rpx" width="90%" closeable='true' border-radius="15">
-			<view class="pin-tel">可拼团列表</view>
-			<view class="spell-box scroll-Y">
-				<scroll-view  scroll-y="true" class="scroll-Y">
-					<view class="spell" v-for="(item,index) in spelllist" >
-						<view class="spell-img">
-							<image :src="item.user_img"></image>
-							<view class="tuan">团长</view>
-							<view class="spell-name">{{item.user_name}}</view>
-						</view>
-						<view class="spell-bt">
-							<view class="spell-bt-ul">
-								<view>还差 <text style="color: #FF2628;margin-left: 5rpx;margin-right: 5rpx;font-weight: bold;">{{item.difference}}人</text>拼团成功 </view>
-								<view>剩余{{item.tmie}}</view>
-							</view>
-							<view class="bt"  @click="gopin(item.user_img,item.user_name)">去拼团</view>
-						</view>
-					</view>
-				</scroll-view>
-				
-			</view>
-		</u-popup>
-		<u-popup v-model="pin" mode="center" height="400rpx" width="90%" closeable="true" border-radius="15">
-			<view class="pin-tel">参与{{pin_name}}的拼单</view>
-			<view class="pin_img">
-				<image :src="pin_img" class="pin_img_i"></image>
-			</view>
-			<view class="pin_bt" @click="show1">去拼单</view>
-		</u-popup>
+		
+		
 	</view>
 </template>
 
@@ -173,55 +130,20 @@
 		data() {
 			return {
 				show:false,//底部弹窗
-				showpin:false,//可拼团列表
-				pin:false,//去拼团弹窗
+				btnnum:1,
 				isactive :'',//规格选择
 				purchase:1,//选择数量
-				pin_img :'',
-				pin_name : '',
+				
 				goods:{
 					"price_x":"29.00",
 					"price_y":"59.00",
 					"goods_name":"猕猴桃新鲜水果绿色原产地，产自 凉都六盘水依山傍水农家肥现摘现发",
 					"sold":1025,
 					"norms":['15个装','25个装','35个装'],
-					"goods_imgs":['https://cdn.uviewui.com/uview/swiper/1.jpg','https://cdn.uviewui.com/uview/swiper/2.jpg',''],
+					"goods_imgs":['https://cdn.uviewui.com/uview/swiper/1.jpg','https://cdn.uviewui.com/uview/swiper/2.jpg','https://cdn.uviewui.com/uview/swiper/3.jpg'],
 					"goods_img":"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fka%2Fua%2FQJ8597345361.jpg%3Fx-oss-process%3Dstyle%2Fshows&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1624435987&t=1a049e06d00a67b516d2a7539eecc3b0",
 					"stock":1256
 				},
-				spelllist:[
-					{
-						user_img:'../../static/user/user_img-1.png',
-						user_name:'张三',
-						difference:9,
-						tmie:"16：18：51.7"
-					},{
-						user_img:'../../static/user/user_img-1.png',
-						user_name:'张三',
-						difference:9,
-						tmie:"16：18：51.7"
-					},{
-						user_img:'../../static/user/user_img-1.png',
-						user_name:'张三',
-						difference:9,
-						tmie:"16：18：51.7"
-					},{
-						user_img:'../../static/user/user_img-1.png',
-						user_name:'张三',
-						difference:9,
-						tmie:"16：18：51.7"
-					},{
-						user_img:'../../static/user/user_img-1.png',
-						user_name:'张三',
-						difference:9,
-						tmie:"16：18：51.7"
-					},{
-						user_img:'../../static/user/user_img-1.png',
-						user_name:'张三',
-						difference:9,
-						tmie:"16：18：51.7"
-					}
-				],
 				evaluatelist:[
 					{
 						user_img:'../../static/user/user_img-1.png',
@@ -262,22 +184,13 @@
 			valChange(e) {
 				this.purchase = e.value
 			},
-			//查看可拼团列表
-			show2:function(e){
-				this.showpin = true
+			// 导航切换
+			change(e) {
+				this.btnnum = e
+				 console.log(this.btnnum)
 			},
-			//去拼团
-			gopin:function(user_img,user_name){
-				this.pin_img =user_img,
-				this.pin_name = user_name,
-				this.showpin = false,
-				this.pin = true
-			},
-			//确定拼团
-			Submit:function(e){
-				uni.navigateTo({
-					url:"/pages/seckill/group-order"
-				})
+			Submit:function(){
+				
 			}
 		}
 	}
@@ -322,6 +235,12 @@
 		flex-direction: row;
 		justify-content:center;
 		align-items: flex-end;
+		color: #FE343F;
+	}
+	.goods-mun-te{
+		font-size: 40rpx;
+		font-weight: bold;
+		margin-right: 10rpx;
 		color: #FFFFFF;
 	}
 	.mun-x{
@@ -390,6 +309,7 @@
 		align-items: center;
 	}
 	.tui{
+		color: #FF2628;
 		font-size: 28rpx;
 	}
 	.piece-pre{
@@ -409,89 +329,43 @@
 		height: 50rpx;
 		line-height: 50rpx;
 	}
-	.spell-box{
-		margin-top: 10rpx;
+	/* 导航栏 */
+	.nav{
+		height: 100rpx;
 		width: 100%;
-		background: #FFFFFF;
-		color: #000000;
-		padding-bottom: 20rpx;
+		background: #ffffff;
+		margin-bottom: 20rpx;
 	}
-	.u-cell-item{
-		color: #000000;
-	}
-	.spell{
-		width: 100%;
-		height: 120rpx;
-		border-bottom: 1rpx solid #e4e7ed;
-		padding: 0rpx 32rpx;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
-	.spell-img{
-		width: 30%;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		overflow: hidden;
-	}
-	.spell-img>image{
-		width: 95rpx;
-		height: 95rpx;
-		border-radius: 50%;
-	}
-	.spell-img>.tuan{
-		width: 70rpx;
-		height: 40rpx;
-		position: relative;
-		left: -80rpx;
-		top: 28rpx;
-		background: #EC632C;
-		border-radius: 20rpx;
-		font-size: 20rpx;
+	.nav-ul{
+		float: left;
+		width: 50%;
+		height: 100rpx;
 		text-align: center;
-		color: #FFFFFF;
-		z-index: 1;
 	}
-	.spell-name{
-		font-size: 26rox;
-		margin-left: -50rpx;
-		color: #323232;
+	.nav-ul>.text{
+		display: inline-block;
+		height: 100rpx;
+		font-size: 32rpx;
+		font-weight: bold;
+		line-height: 100rpx;
 	}
-	.spell-bt{
-		display: flex;
-		flex-direction: row;
-		width: 70%;
-		justify-content: flex-end;
-		align-items: center;
-		
-	}
-	.spell-bt-ul{
-		font-size: 24rpx;
-	}
-	.spell-bt-ul>view{
-		margin-top: 10rpx;
-	}
-	.spell-bt>.bt{
-		width: 150rpx;
-		height: 50rpx;
-		line-height: 50rpx;
-		text-align: center;
-		background: #FF6047;
-		border-radius: 20rpx;
-		color: #FFFFFF;
-		font-size: 24rpx;
-		margin-left: 10rpx;
+	.actives{
+		display: inline-block;
+		font-size: 32rpx;
+		height: 96rpx;
+		line-height: 98rpx;
+		color: #FE343F;
+		font-weight: bold;
+		border-bottom: 4rpx solid #FE343F;
 	}
 	/* 商品评价 */
 	.evaluate{
 		background: #FFFFFF;
-		margin-top: 30rpx;
 		width: 100%;
-		margin-bottom: 30rpx;
+		// margin-bottom: 30rpx;
 		padding: 0rpx 32rpx;
 		padding-bottom: 20rpx;
+		margin-bottom: 120rpx;
 	}
 	.evaluate-tel{
 		display: flex;
@@ -569,12 +443,12 @@
 		height: 160rpx;
 		margin-right:20rpx ;
 	}
+	/* 商品详情 */
 	.goods-details{
 		width: 100%;
 		min-height:350rpx ;
-		margin-top: 30rpx;
 		background: #FFFFFF;
-		margin-bottom: 20rpx;
+		margin-bottom: 120rpx;
 	}
 	.details{
 		margin-top: 30rpx;
@@ -750,44 +624,5 @@
 		color: #FFFFFF;
 		border-radius: 40rpx;
 		margin-bottom: 20rpx;
-	}
-	//* 查看可拼团列表 */
-	.scroll-Y{
-		height: 680rpx;
-		
-	}
-	.pin-tel{
-		background: #FFFFFF;
-		font-size: 30rpx;
-		margin-top: 30rpx;
-		border-bottom: 1rpx solid #ddd;
-		text-align: center;
-		padding-bottom: 10rpx;
-	}
-	/* 拼团弹窗 */
-	.pin_img{
-		margin-top: 30rpx;
-		padding: 0rpx 20rpx;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.pin_img_i{
-		float: left;
-		width: 160rpx;
-		height: 160rpx;
-		border-radius: 50%;
-	}
-	.pin_bt{
-		width: 80%;
-		height: 60rpx;
-		text-align: center;
-		line-height: 60rpx;
-		margin-left: 10%;
-		background: #FF6047;
-		border-radius: 15rpx;
-		color: #FFFFFF;
-		font-size: 30rpx;
-		margin-top: 40rpx;
 	}
 </style>
