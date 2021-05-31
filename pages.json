@@ -19,6 +19,13 @@
 				"navigationBarTitleText": "动态",
 				"navigationStyle":"custom"
 			}
+		},{
+			"path": "pages/dongtai/details",
+			
+			"style": {
+				"navigationBarTitleText": "内容"
+				
+			}
 		},
 		{
 			"path": "pages/my/index",

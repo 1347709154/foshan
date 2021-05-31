@@ -44,23 +44,23 @@
 						<image src="../../static/order/yes.png" mode="" class="yes"></image>
 					</view>
 				</view>
-				<view class="listitem3">
+				<view class="listitem3" @click="address()">
 					<p>新增</p>
 					<p>更换</p>
 				</view>
 			</view>
-			<view class="bottombox">
-				<view class="left headimg" v-if="">
+			<view class="bottombox" v-for="(it,ind) in touristlist " v-if="it.isflag==true">
+				<view class="left headimg" >
 					<p>游客</p>
-					<image src="../../static/order/cha.png" mode="" id="headming"></image>
+					<!-- <image src="../../static/order/cha.png" mode="" id="headming"></image> -->
 				</view>
 				<view class="left touristinfo">
-					<p class="infotext">{{touristinfo.name}}</p>
-					<p class="infotext">{{touristinfo.phone}}</p>
-					<p v-if="touristinfo.idnum==''" id="noidmun">缺少证件号，点击补齐</p>
-					<p class="infotext" v-else>{{touristinfo.idnum}}</p>
-				</view>
-				<view class="right editbtn">
+					<p class="infotext">{{it.name}}</p>
+					<p class="infotext">{{it.phone}}</p>
+					<p v-if="it.idnum==''" id="noidmun">缺少证件号，点击补齐</p>
+					<p class="infotext" v-else>{{it.idnum}}</p>
+				</view >
+				<view class="right editbtn" @click="address(ind)">
 					编辑
 				</view>
 			</view>
@@ -110,6 +110,16 @@
 				</view>
 			</view>
 		</view>
+		<u-popup v-model="show" mode="bottom" class="pop" height="450rpx" :closeable="true">
+			<view class="pop-tel">填写信息</view>
+			<u-field v-model="name" label="姓名" placeholder="请填写姓名"></u-field>
+			<u-field v-model="phone" label="电话" placeholder="电话" type="number"></u-field>
+			<u-field v-model="idnum" label="身份证" placeholder="身份证" type="idcard"></u-field>
+			<!-- <input :value="touristlist[index].name" placeholder="请输入姓名" class="popup-input" />
+			<input :value="touristlist[index].phone" placeholder="请输入联系电话" type="number"  class="popup-input"/>
+			<input :value="touristlist[index].idnum" placeholder="请输入身份证" type="idcard"  class="popup-input"/> -->
+			<view class="popup-bt" @click="Submit">确定</view>
+		</u-popup>
 	</view>
 </template>
 
@@ -117,9 +127,15 @@
 	export default {
 		data() {
 			return {
+				index:0,
+				show:false,
+				name:'',
+				phone:'',
+				idnum:'',
 				paytype:'',
 				// 步进器
 				value: 1,
+				number:1,
 				title: '景区门票+旅游巴士+观光车票',
 				key: ["无需退票", "退款无忧"],
 				datelist: [{
@@ -168,11 +184,24 @@
 				this.$set(this.datelist[i], 'isflag', true)
 			},
 			change2(i) {
-				console.log(i)
-				for (var j = 0; j < this.touristlist.length; j++) {
-					this.$set(this.touristlist[j], 'isflag', false)
+				if(this.touristlist[i].isflag==true){
+					this.$set(this.touristlist[i], 'isflag', false)
+					let num = this.value;
+					 num=num-1;
+	
+					this.value = num
+				}else{
+					this.$set(this.touristlist[i], 'isflag', true);
+					let num = 0;
+					for(var j=0;j<this.touristlist.length;j++){
+						console.log(11111)
+						if(this.touristlist[j].isflag==true){
+						  num=num+1;
+						}
+					}
+					this.value = num
+					
 				}
-				this.$set(this.touristlist[i], 'isflag', true)
 			},
 			// 获取用户信息
 			getinfo(i) {
@@ -193,6 +222,42 @@
 				uni.navigateTo({
 					url:"/pages/guide-pre/pre?type=scenic"
 				})
+			},
+			//新增或更换游客
+			address:function(index){
+				this.show  = true;
+				if(index){
+					this.name = this.touristlist[index].name
+					this.phone = this.touristlist[index].phone
+					this.idnum = this.touristlist[index].idnum
+					this.index = index;
+				}else{
+					this.name = ''
+					this.phone = ''
+					this.idnum = ''
+				}
+				
+				
+			},
+			Submit:function(e){
+				if(this.index){
+					this.touristlist[this.index].name = this.name
+					this.touristlist[this.index].phone = this.phone
+					this.touristlist[this.index].idnum = this.idnum
+					this.show = false;
+				}else{
+					console.log(111111)
+					let touristlist = this.touristlist
+					let list = {}
+						list.name = this.name
+						list.phone = this.phone
+						list.idnum=this.idnum
+					touristlist.splice(0,0,list);
+					this.touristlist = touristlist
+					console.log(touristlist);
+					this.show = false;
+				}
+				
 			}
 		}
 	}
@@ -369,9 +434,9 @@
 
 	.tourist {
 		width: 717rpx;
-		height: 352rpx;
 		margin: auto;
 		margin-top: 9rpx;
+		padding-bottom: 30rpx;
 		background: #FFFFFF;
 		border-radius: 8rpx;
 	}
@@ -583,5 +648,25 @@
 		margin-top: 23rpx;
 		right: 50rpx;
 		position: absolute;
+	}
+	.pop{
+		padding-top: 50rpx;
+	}
+	.pop-tel{
+		height: 100rpx;
+		text-align: center;
+		line-height: 100rpx;
+		width: 100%;
+		border-bottom: 1rpx solid #ddd;
+	}
+	.popup-bt{
+		height: 80rpx;
+		line-height: 80rpx;
+		width: 100%;
+		background:#FF9726 ;
+		margin-top: 20rpx;
+		// opacity: 0.5;
+		text-align: center;
+		color: #FFFFFF;
 	}
 </style>

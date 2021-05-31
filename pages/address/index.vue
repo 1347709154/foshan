@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="add" @click="add">+新增地址</view>
-		<view class="add-list">
+		<view class="add-list" v-if="!give_type">
 			<view class="add-list-l">
 				<view class="add-list-l-top">
 					<image src="../../static/user/dingwei.png" mode="aspectFit"></image>
@@ -12,13 +12,13 @@
 					成龙大道师大现代花园12栋2单元
 				</view>
 			</view>
-			<view class="add-list-r">
+			<view class="add-list-r" @click="add">
 				<view>
 					<image src="../../static/user/address-up.png" mode="aspectFit"></image>
 				</view>
 			</view>
 		</view>
-		<view class="add-list">
+		<view class="add-list" v-if="give_type">
 			<view class="add-list-l" @click="give">
 				<view class="add-list-l-top">
 					<image src="../../static/user/dingwei.png" mode="aspectFit"></image>

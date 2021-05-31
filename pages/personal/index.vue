@@ -18,6 +18,7 @@
 			<u-field  type="text"  v-model="user_name" label="签名"
 			placeholder="请输入您的签名"></u-field>
 		</view>
+		<view class="bottom">保存</view>
 	</view>
 </template>
 
@@ -87,5 +88,14 @@
 	.radio{
 		text-align: left;
 		
+	}
+	.bottom{
+		margin-top: 50rpx;
+		width: 90%;
+		height: 80rpx;
+		line-height: 80rpx;
+		text-align: center;
+		background:#FF9726 ;
+		color: #FFFFFF;
 	}
 </style>

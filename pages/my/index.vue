@@ -462,13 +462,13 @@
 		right: 32rpx;
 		width: 140rpx;
 		height: 170rpx;
-		border: 1rpx solid #80D981;
+	/* 	border: 1rpx solid #80D981; */
 		border-radius: 60rpx;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		opacity: 0.5;
+		opacity: 1;
 	}
 	.phone>image{
 		width: 120rpx;

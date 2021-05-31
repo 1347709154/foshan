@@ -24,8 +24,9 @@
 						{{items.nickname}}
 					</view>
 				</view>
-				<view class="swiper">
-					<u-swiper :list="items.list" :height="674" :width="750" mode="number" indicator-pos="bottomRight"></u-swiper>
+				
+				<view class="swiper" >
+					<u-swiper :list="items.list" :height="674" :width="750" mode="number" indicator-pos="bottomRight" @click="details(index)"></u-swiper>
 				</view>
 				<view class="textbox">
 					<view class="loction">
@@ -36,7 +37,7 @@
 							{{items.address}}
 						</view>
 					</view>
-					<view class="title">
+					<view class="title" @click="details(index)">
 						{{items.title}}
 					</view>
 					<view class="flexoarea">
@@ -51,15 +52,25 @@
 							<image src="../../static/dongtai/xx.png" mode=""></image>
 						</view>
 						<view class="caozuolist">
-							<image src="../../static/dongtai/bi.png" mode=""></image>
-						</view>
-						<view class="caozuolist">
 							<image src="../../static/dongtai/zhuangfa.png" mode=""></image>
 						</view>
 					</view>
 					<!-- 需要判断是否已经有评论 -->
+					<view class="comment">
+						<view class="comment-list" v-for="(it,idx) in items.comment" v-if="idx<=4">
+							<view class="comment-img">
+								<u-avatar :size="60" :src="it.comment_img"></u-avatar>
+								<view>{{it.comment_name}}</view>
+							</view>
+							<view class="comment-con">{{it.comment}}</view>
+						</view>
+					</view>
 					<view class="evlbox">
-						<u-input :border="true" :height="46" placeholder="发表评论......" />
+						<input  placeholder="发表评论......" :value="cot" adjust-position="false" @input="input" confirm-type="send"/>
+						<view class="evlbox-inc" @click="fasong(index)">
+							<image src="../../static/dongtai/fa.png" mode=""></image>
+							<view>发送</view>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -101,16 +112,29 @@
 						<view class="caozuolist">
 							<image src="../../static/dongtai/xx.png" mode=""></image>
 						</view>
-						<view class="caozuolist">
+						<!-- <view class="caozuolist">
 							<image src="../../static/dongtai/bi.png" mode=""></image>
-						</view>
+						</view> -->
 						<view class="caozuolist">
 							<image src="../../static/dongtai/zhuangfa.png" mode=""></image>
 						</view>
 					</view>
 					<!-- 需要判断是否已经有评论 -->
+					<view class="comment">
+						<view class="comment-list" v-for="(it,idx) in items.comment" v-if="idx<=4">
+							<view class="comment-img">
+								<u-avatar :size="60" :src="it.comment_img"></u-avatar>
+								<view>{{it.comment_name}}</view>
+							</view>
+							<view class="comment-con">{{it.comment}}</view>
+						</view>
+					</view>
 					<view class="evlbox">
-						<u-input :border="true" :height="46" placeholder="发表评论......" />
+						<input  placeholder="发表评论......"  :value="cot" adjust-position="false" @input="input" confirm-type="send"/>
+						<view class="evlbox-inc" @click="fasong(index)">
+							<image src="../../static/dongtai/fa.png" mode=""></image>
+							<view>发送</view>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -122,11 +146,13 @@
 	export default {
 		data() {
 			return {
+				cot:'',
 				title: 'Hello',
 				btnnum: 0,
 				items: ["游客动态", "志愿者动态"],
 				count: "",
-				msglist: [{
+				msglist: [
+					{
 						nickname: "测试测试测试",
 						src: "https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg",
 						list: [{
@@ -141,7 +167,24 @@
 						],
 						address: "安徽黄山",
 						title: "五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿",
-						count: 2000
+						count: 2000,
+						comment:[
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							}
+						]
 					},
 					{
 						nickname: "测试测试测试",
@@ -159,7 +202,23 @@
 						address: "重庆九龙坡",
 						title: "五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿",
 						count: 999,
-
+						comment:[
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							}
+						]
 					},
 				],
 				msglist2: [{
@@ -177,7 +236,24 @@
 						],
 						address: "九寨沟",
 						title: "五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿",
-						count: 2000
+						count: 2000,
+						comment:[
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							}
+						]
 					},
 					{
 						nickname: "李四",
@@ -195,7 +271,23 @@
 						address: "九寨沟",
 						title: "五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿",
 						count: 999,
-				
+						comment:[
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							},
+							{
+								comment_img:'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+								comment_name:'月野兔',
+								comment:'五一出游去山间看看吧 不会后悔的，没有人挤人，没有车挤车 找一家山间的美食民宿'
+							}
+						]
 					},
 				]
 
@@ -215,6 +307,45 @@
 					url:"../release/release"
 				})
 				console.log(111)
+			},
+			details(e){
+				let index = e
+				uni.navigateTo({
+					url:"/pages/dongtai/details"
+				})
+				
+			},
+			input:function(e){
+				this.cot = e.detail.value
+			},
+			//评论
+			fasong(e){
+				let index = e;
+				let commentlist = {};
+				if(this.btnnum==0){
+					let list = this.msglist;
+					let value =this.cot; 
+						commentlist.comment_img = 'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+						commentlist.comment_name = '月野兔',
+						commentlist.comment = value
+						
+					list[index].comment.splice(0,0,commentlist);
+								
+					this.msglist = list;
+					this.cot = '';
+				}
+				if(this.btnnum==1){
+					let list = this.msglist2;
+					let value =this.cot; 
+						commentlist.comment_img = 'https://ewr1.vultrobjects.com/imgspice2/000/004/888/353_1a8_8d1.jpg',
+						commentlist.comment_name = '月野兔',
+						commentlist.comment = value
+						
+					list[index].comment.splice(0,0,commentlist);
+								
+					this.msglist2 = list;
+					this.cot = '';
+				}
 			}
 		}
 	}
@@ -325,6 +456,7 @@
 		overflow: hidden;
 		margin-top: 8px;
 		background: #FFFFFF;
+		padding-bottom: 20rpx;
 	}
 
 	.textbox {
@@ -391,15 +523,62 @@
 	.count {
 		margin-left: 2px;
 	}
-
+.comment{
+		margin-top: 10rpx;
+		width: 100%;
+		background: #FFFFFF;
+		padding: 0rpx 32rpx;
+		margin-bottom: 10rpx;
+	}
+	.comment-list{
+		margin:20rpx 0rpx ;
+		border-bottom: 1rpx solid #ddd;
+	}
+	.comment-img{
+		width: 100%;
+		/* height: 80rpx; */
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+	}
+	.comment-img>view{
+		margin-left: 10rpx;
+		font-size: 28rpx;
+		font-weight: bold;
+	}
+	.comment-con{
+		padding-left:80rpx ;
+		margin: 20rpx 0rpx;
+		font-size: 28rpx;
+	}
 	.evlbox {
 		width: 706rpx;
 		height: 46rpx;
 		margin: auto;
-		background: #F5F5F5;
 		margin-top: 30rpx;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 	}
-
+	.evlbox>input{
+		width: 570rpx;
+		height: 46rpx;
+		line-height: 46rpx;
+		background: #F5F5F5;
+	}
+	.evlbox-inc{
+		padding-left: 10rpx;
+		height: 46rpx;
+		width: 136rpx;
+		display: flex;
+		flex-direction: row;
+		font-size: 28rpx;
+	}
+	.evlbox-inc>image{
+		width: 55rpx;
+		height: 46rpx;
+	}
 	.uni-input-placeholder {
 		color: #848383;
 		font-size: 12px;

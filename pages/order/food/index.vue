@@ -38,7 +38,7 @@
 				</view>
 				<view class="order-list-bottom" v-if="item.state==2">
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">取消订单</view>
-					<view class="shiyong" style="background: #FF0000;">去支付</view>
+					<view class="shiyong" style="background: #FF0000;" @click="topay">去支付</view>
 				</view>
 				<view class="order-list-bottom" v-if="item.state==3">
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">申请发票</view>
@@ -53,8 +53,32 @@
 					<view class="gaiqian" style="border: 1rpx solid #E2E1E1;color: #131313;">再来一单</view>
 				</view>
 			</view>
-			
 		</view>
+		<!-- 去支付弹窗 -->
+		<u-popup v-model="show" :closeable="true" mode="bottom" width="100%">
+			<!-- 支付选择 -->
+			<view class="pay-type">
+				 <view class="type" @click="paytype(1)">
+					 <view class="type-l">
+						 <image src="../../../static/home/WeChat.png"></image>
+						 <view>微信</view>
+					 </view>
+					 <view class="type-r">
+						 <radio value="1" :checked="pay_type==1" style="transform:scale(0.7)"  color="#09BB07"/>
+					 </view>
+				 </view>
+				 <view class="type" @click="paytype(2)">
+					 <view class="type-l">
+						 <image src="../../../static/home/Alipay.png"></image>
+						 <view>支付宝</view>
+					 </view>
+					 <view class="type-r">
+						 <radio value="2" :checked="pay_type==2" style="transform:scale(0.7)" color="#09BB07" />
+					 </view>
+				 </view>
+			</view>
+			<view class="Submit" @click="Submit">支付</view>
+		</u-popup>
 	</view>
 </template>
 
@@ -62,7 +86,11 @@
 	export default {
 		data() {
 			return {
+				show:false,
 				btnnum: '0',
+				pay_type:0,//支付方式
+				pay_xy:false,//是否同意支付协议
+				type:'',//支付类型
 				order:[
 						{
 						goods_logo:"../../../static/user/logo.png",
@@ -122,6 +150,25 @@
 				this.btnnum = e
 				 console.log(this.btnnum)
 			},
+			//去支付
+			topay:function(e){
+				this.show = true;
+			},
+			//支付选择
+			paytype:function(e){
+				this.pay_type=e;
+			},
+			Submit:function(e){
+				if(!this.pay_type){
+					uni.showToast({
+					    title: '请选择支付方式',
+					    duration: 2000,
+						icon:'none'
+					});
+				}else{
+					
+				}
+			}
 		}
 	}
 </script>
@@ -143,7 +190,7 @@
 		left: 0rpx;
 		height: 100rpx;
 		width: 100%;
-		z-index: 99999;
+		z-index: 1;
 		background: #ffffff;
 	}
 	.nav-ul{
@@ -251,5 +298,48 @@
 		font-size: 28rpx;
 		border-radius: 8rpx;
 		margin-right: 15rpx;
+	}
+	/* 支付选择 */
+	.pay-type{
+		width: 96%;
+		background: #FFFFFF;
+		border-radius: 15rpx;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-top: 50rpx;
+		padding: 20rpx 32rpx;
+	}
+	.type{
+		width: 100%;
+		height: 100rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.type-l{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	.type-l>image{
+		width: 45rpx;
+		height: 45rpx;
+	}
+	.type-l>view{
+		margin-left: 10rpx;
+		font-size: 30rpx;
+		font-weight: bold;
+	}
+	.Submit{
+		margin-top: 20rpx;
+		height: 80rpx;
+		line-height: 80rpx;
+		background:#FF9726 ;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 32rpx;
 	}
 </style>
